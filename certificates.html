@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificates — Remas Alroubie</title>
+  <link rel="stylesheet" href="remasalroubie.css" />
+  <style>
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-overlay img {
+      max-width: 90%;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .modal-close {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .cert-card {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .cert-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="certModal" onclick="closeModal(event)">
+    <button class="modal-close" onclick="closeCertModal()">✕</button>
+    <img id="modalImg" src="" alt="Certificate" />
+  </div>
+
+  <nav>
+    <span class="logo">REMAS ALROUBIE</span>
+    <ul>
+      <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="mywork.html" data-en="Work" data-ar="أعمالي">Work</a></li>
+      <li><a href="skills.html" data-en="Skills" data-ar="المهارات">Skills</a></li>
+      <li><a href="certificates.html" class="active" data-en="Certificates" data-ar="الشهادات">Certificates</a></li>
+      <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+      <li><button class="lang-btn" onclick="toggleLang()">العربية</button></li>
+    </ul>
+  </nav>
+
+  <div class="page-section">
+    <h2 class="sec-title" data-en="Certificates" data-ar="الشهادات">Certificates</h2>
+    <div class="underline"></div>
+
+    <div class="cert-grid">
+
+      <!-- 2025 -->
+      <div class="cert-card" onclick="openCertModal('images/cert-data-structures.jpg')">
+        <div class="cert-icon">🗂️</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="KorsatCode" data-ar="كورسات كود">KorsatCode</span>
+          <h3 data-en="Data Structures Full Course" data-ar="دورة هياكل البيانات الكاملة">Data Structures Full Course</h3>
+          <p data-en="Completed a full Arabic-language course on Data Structures from KorsatCode." data-ar="أتممت دورة كاملة باللغة العربية في هياكل البيانات من منصة كورسات كود.">Completed a full Arabic-language course on Data Structures from KorsatCode.</p>
+          <span class="cert-date">2025</span>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openCertModal('images/cert-java.jpg')">
+        <div class="cert-icon">💻</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="Satar Platform · Tuwaiq Academy" data-ar="منصة سَطر · أكاديمية طويق">Satar Platform · Tuwaiq Academy</span>
+          <h3 data-en="Java 103 — Advanced Level" data-ar="جافا 103 — المستوى المتقدم">Java 103 — Advanced Level</h3>
+          <p data-en="Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours." data-ar="دورة برمجة Java متقدمة تغطي مفاهيم البرمجة الكائنية وحل المشكلات. 7 ساعات تدريبية.">Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours.</p>
+          <span class="cert-date">2025</span>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="cert-card" onclick="openCertModal('images/cert-digital-design.jpg')">
+        <div class="cert-icon">🎨</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="Ministry of Education · Saudi Arabia" data-ar="وزارة التعليم · المملكة العربية السعودية">Ministry of Education · Saudi Arabia</span>
+          <h3 data-en="Digital Design" data-ar="التصميم الرقمي">Digital Design</h3>
+          <p data-en="Completed an elective program in Digital Design during the third semester of the academic year 1445H." data-ar="أتممت برنامجاً اختيارياً في التصميم الرقمي خلال الفصل الدراسي الثالث للعام الدراسي 1445هـ.">Completed an elective program in Digital Design during the third semester of the academic year 1445H.</p>
+          <span class="cert-date">2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openCertModal('images/cert-hr.jpg')">
+        <div class="cert-icon">👥</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
+          <h3 data-en="Introduction to Human Resources Functions" data-ar="مقدمة في مهام الموارد البشرية">Introduction to Human Resources Functions</h3>
+          <p data-en="An introduction to core HR functions and workplace practices. 4 training hours." data-ar="مقدمة في وظائف الموارد البشرية الأساسية وممارسات بيئة العمل. 4 ساعات تدريبية.">An introduction to core HR functions and workplace practices. 4 training hours.</p>
+          <span class="cert-date">2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openCertModal('images/cert-3d.jpg')">
+        <div class="cert-icon">🖨️</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
+          <h3 data-en="3D Printing in the Labor Market" data-ar="الطباعة ثلاثية الأبعاد في سوق العمل">3D Printing in the Labor Market</h3>
+          <p data-en="Explored the applications and future of 3D printing technology in professional environments. 2 training hours." data-ar="استكشاف تطبيقات ومستقبل تقنية الطباعة ثلاثية الأبعاد في البيئات المهنية. ساعتان تدريبيتان.">Explored the applications and future of 3D printing technology in professional environments. 2 training hours.</p>
+          <span class="cert-date">2024</span>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="cert-card" onclick="openCertModal('images/cert-accounting.jpg')">
+        <div class="cert-icon">📊</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+          <h3 data-en="International Accounting Standards in the Public Sector" data-ar="معايير المحاسبة الدولية في القطاع العام">International Accounting Standards in the Public Sector</h3>
+          <p data-en="Covered IPSAS principles and their application in public sector financial reporting. 5 training hours." data-ar="تناولت مبادئ معايير المحاسبة الدولية للقطاع العام وتطبيقها في التقارير المالية. 5 ساعات تدريبية.">Covered IPSAS principles and their application in public sector financial reporting. 5 training hours.</p>
+          <span class="cert-date">2023</span>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openCertModal('images/cert-linkedin.jpg')">
+        <div class="cert-icon">🔍</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+          <h3 data-en="Talent Acquisition via LinkedIn" data-ar="استقطاب المواهب عبر LinkedIn">Talent Acquisition via LinkedIn</h3>
+          <p data-en="Learned strategies for sourcing and attracting talent using LinkedIn effectively. 1 training hour." data-ar="تعلّمت استراتيجيات استقطاب المواهب واستخدام LinkedIn بفاعلية. ساعة تدريبية.">Learned strategies for sourcing and attracting talent using LinkedIn effectively. 1 training hour.</p>
+          <span class="cert-date">2023</span>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openCertModal('images/cert-tech.jpg')">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+          <h3 data-en="New Technologies and Their Impact on Future Jobs" data-ar="التقنيات الحديثة وأثرها على وظائف المستقبل">New Technologies and Their Impact on Future Jobs</h3>
+          <p data-en="An overview of emerging technologies and how they are reshaping career paths and the job market. 1 training hour." data-ar="نظرة عامة على التقنيات الناشئة وكيف تعيد تشكيل المسارات المهنية وسوق العمل. ساعة تدريبية.">An overview of emerging technologies and how they are reshaping career paths and the job market. 1 training hour.</p>
+          <span class="cert-date">2023</span>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openCertModal('images/cert-partnerships.jpg')">
+        <div class="cert-icon">🤝</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+          <h3 data-en="Partnerships Activation" data-ar="تفعيل الشراكات">Partnerships Activation</h3>
+          <p data-en="Focused on building and activating effective partnerships within organizational and community contexts. 2 training hours." data-ar="تركّزت على بناء وتفعيل الشراكات الفعّالة في السياقات المؤسسية والمجتمعية. ساعتان تدريبيتان.">Focused on building and activating effective partnerships within organizational and community contexts. 2 training hours.</p>
+          <span class="cert-date">2023</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p data-en="© 2025 Remas Alroubie. All rights reserved." data-ar=".© 2025 ريماس الربيعي. جميع الحقوق محفوظة">© 2025 Remas Alroubie. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let isArabic = false;
+    function toggleLang() {
+      isArabic = !isArabic;
+      const btn = document.querySelector('.lang-btn');
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerHTML = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+      document.body.classList.toggle('rtl', isArabic);
+      btn.textContent = isArabic ? 'English' : 'العربية';
+    }
+
+    function openCertModal(imgSrc) {
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('certModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+      document.getElementById('certModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModal(event) {
+      if (event.target === document.getElementById('certModal')) {
+        closeCertModal();
+      }
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeCertModal();
+    });
+  </script>
+
+</body>
+</html>

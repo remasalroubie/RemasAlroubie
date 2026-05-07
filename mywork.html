@@ -11,58 +11,52 @@
   <nav>
     <span class="logo">REMAS ALROUBIE</span>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="mywork.html" class="active">Work</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="mywork.html" class="active" data-en="Work" data-ar="أعمالي">Work</a></li>
+      <li><a href="skills.html" data-en="Skills" data-ar="المهارات">Skills</a></li>
+      <li><a href="certificates.html" data-en="Certificates" data-ar="الشهادات">Certificates</a></li>
+      <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+      <li><button class="lang-btn" onclick="toggleLang()">العربية</button></li>
     </ul>
   </nav>
 
   <div class="page-section">
-    <h2 class="sec-title">Portfolio</h2>
+    <h2 class="sec-title" data-en="Portfolio" data-ar="أعمالي">Portfolio</h2>
     <div class="underline"></div>
 
     <div class="portfolio-grid">
-
-      <!-- PROJECT CARD -->
       <div class="portfolio-card">
         <div class="port-img">🌿</div>
         <div class="port-body">
-          <span class="port-tag">Group Project · High School Graduation · 2024</span>
-          <h3>Health and Happiness</h3>
-          <p>
-            A collaborative Arabic-language web project built during my final year at secondary school in 2024,
-            developed as a graduation project alongside a team of four classmates.
-          </p>
-          <p>
-            The website aims to build a healthier community by helping users find trusted health food stores,
-            dietary schedules, and personalized recommendations — all based on their specific health condition.
-          </p>
+          <span class="port-tag" data-en="Group Project · High School Graduation · 2024" data-ar="مشروع جماعي · تخرج ثانوي · 2024">Group Project · High School Graduation · 2024</span>
+          <h3 data-en="Health and Happiness" data-ar="الصحة والسعادة">Health and Happiness</h3>
+          <p data-en="A collaborative Arabic-language web project built during my final year at secondary school in 2024, developed as a graduation project alongside a team of four classmates." data-ar="مشروع ويب عربي جماعي بنيته خلال سنتي الأخيرة في الثانوية عام 2024، طوّرته كمشروع تخرج مع فريق من أربع زميلات.">A collaborative Arabic-language web project built during my final year at secondary school in 2024, developed as a graduation project alongside a team of four classmates.</p>
+          <p data-en="The website aims to build a healthier community by helping users find trusted health food stores, dietary schedules, and personalized recommendations — all based on their specific health condition." data-ar="يهدف الموقع إلى بناء مجتمع أكثر صحة من خلال مساعدة المستخدمين في إيجاد متاجر غذاء صحي موثوقة وجداول غذائية وتوصيات مخصصة بحسب حالتهم الصحية.">The website aims to build a healthier community by helping users find trusted health food stores, dietary schedules, and personalized recommendations — all based on their specific health condition.</p>
 
           <div class="port-details">
             <div class="port-detail-item">
-              <span class="port-detail-label">Health Topics Covered</span>
+              <span class="port-detail-label" data-en="Health Topics Covered" data-ar="المواضيع الصحية">Health Topics Covered</span>
               <div class="port-tags-row">
-                <span class="port-pill">Obesity</span>
-                <span class="port-pill">Underweight</span>
-                <span class="port-pill">Wheat Sensitivity</span>
-                <span class="port-pill">Diabetes</span>
-                <span class="port-pill">High Blood Pressure</span>
+                <span class="port-pill" data-en="Obesity" data-ar="السمنة">Obesity</span>
+                <span class="port-pill" data-en="Underweight" data-ar="النحافة">Underweight</span>
+                <span class="port-pill" data-en="Wheat Sensitivity" data-ar="حساسية القمح">Wheat Sensitivity</span>
+                <span class="port-pill" data-en="Diabetes" data-ar="السكري">Diabetes</span>
+                <span class="port-pill" data-en="High Blood Pressure" data-ar="ضغط الدم">High Blood Pressure</span>
               </div>
             </div>
 
             <div class="port-detail-item">
-              <span class="port-detail-label">Each condition includes</span>
+              <span class="port-detail-label" data-en="Each condition includes" data-ar="كل حالة تتضمن">Each condition includes</span>
               <div class="port-tags-row">
-                <span class="port-pill">What is it?</span>
-                <span class="port-pill">Dietary Schedules</span>
-                <span class="port-pill">Recommendations</span>
-                <span class="port-pill">Trusted Stores</span>
+                <span class="port-pill" data-en="What is it?" data-ar="ما هو؟">What is it?</span>
+                <span class="port-pill" data-en="Dietary Schedules" data-ar="جداول غذائية">Dietary Schedules</span>
+                <span class="port-pill" data-en="Recommendations" data-ar="توصيات">Recommendations</span>
+                <span class="port-pill" data-en="Trusted Stores" data-ar="متاجر موثوقة">Trusted Stores</span>
               </div>
             </div>
 
             <div class="port-detail-item">
-              <span class="port-detail-label">Built with</span>
+              <span class="port-detail-label" data-en="Built with" data-ar="بُني بـ">Built with</span>
               <div class="port-tags-row">
                 <span class="port-pill">WordPress.com</span>
                 <span class="port-pill">Canva</span>
@@ -71,23 +65,38 @@
             </div>
 
             <div class="port-detail-item">
-              <span class="port-detail-label">Team</span>
-              <p class="port-team">Remas Alroubie · Fatima Al-Qarni · Reyouf Al-Thubaiti · Dana Al-Raibqan · Jumana Al-Sulaimani</p>
+              <span class="port-detail-label" data-en="Team" data-ar="الفريق">Team</span>
+             <p class="port-team"
+                 data-en="Remas Al-Rubaie . Fatima Al-Qarni . Ruyof Al-Thubaiti . Dana Al-Rubaiqan . Jumana Al-Sulaymani"
+                 data-ar="ريماس الربيعي . فاطمة القرني . ريوف الثبيتي . دانة الربيقان . جمانة السليماني">
+                Remas Al-Rubaie . Fatima Al-Qarni . Ruyof Al-Thubaiti . Dana Al-Rubaiqan . Jumana Al-Sulaymani
+              </p>
             </div>
+
           </div>
 
-          <a href="https://healthandhappinessesme.wordpress.com/" target="_blank" class="btn-primary" style="margin-top:1.5rem; display:inline-block;">
-            Visit Website →
-          </a>
+          <a href="https://healthandhappinessesme.wordpress.com/" target="_blank" class="btn-primary" style="margin-top:1.5rem; display:inline-block;" data-en="Visit Website →" data-ar="زيارة الموقع →">Visit Website →</a>
         </div>
       </div>
-
     </div>
   </div>
 
   <footer>
-    <p>© 2025 Remas Alroubie. All rights reserved.</p>
+    <p data-en="© 2025 Remas Alroubie. All rights reserved." data-ar=".© 2025 ريماس الربيعي. جميع الحقوق محفوظة">© 2025 Remas Alroubie. All rights reserved.</p>
   </footer>
+
+  <script>
+    let isArabic = false;
+    function toggleLang() {
+      isArabic = !isArabic;
+      const btn = document.querySelector('.lang-btn');
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerHTML = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+      document.body.classList.toggle('rtl', isArabic);
+      btn.textContent = isArabic ? 'English' : 'العربية';
+    }
+  </script>
 
 </body>
 </html>

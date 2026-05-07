@@ -11,54 +11,104 @@
   <nav>
     <span class="logo">REMAS ALROUBIE</span>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="mywork.html">Work</a></li>
-      <li><a href="skills.html" class="active">Skills</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="mywork.html" data-en="Work" data-ar="أعمالي">Work</a></li>
+      <li><a href="skills.html" class="active" data-en="Skills" data-ar="المهارات">Skills</a></li>
+      <li><a href="certificates.html" data-en="Certificates" data-ar="الشهادات">Certificates</a></li>
+      <li><a href="contact.html" data-en="Contact" data-ar="تواصل">Contact</a></li>
+      <li><button class="lang-btn" onclick="toggleLang()">العربية</button></li>
     </ul>
   </nav>
 
   <div class="page-section">
-    <h2 class="sec-title">Skills</h2>
+    <h2 class="sec-title" data-en="Skills" data-ar="المهارات">Skills</h2>
     <div class="underline"></div>
 
-    <div class="skills-row">
+    <p class="skills-category-label" data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</p>
+    <div class="skills-row" style="margin-bottom:3rem;">
       <div class="skill-box">
         <div class="skill-icon">🐍</div>
-        <h4>Python</h4>
-        <p>Data analysis · Automation</p>
+        <h4 data-en="Python" data-ar="بايثون">Python</h4>
+        <p data-en="Data analysis · Automation" data-ar="تحليل البيانات · الأتمتة">Data analysis · Automation</p>
+      </div>
+      <div class="skill-box">
+        <div class="skill-icon">🗄️</div>
+        <h4>SQL</h4>
+        <p data-en="Queries · Data retrieval" data-ar="الاستعلامات · استرجاع البيانات">Queries · Data retrieval</p>
       </div>
       <div class="skill-box">
         <div class="skill-icon">📊</div>
         <h4>Power BI</h4>
-        <p>Dashboards · Reports</p>
+        <p data-en="Dashboards · Reports" data-ar="لوحات البيانات · التقارير">Dashboards · Reports</p>
       </div>
       <div class="skill-box">
         <div class="skill-icon">📋</div>
         <h4>Excel</h4>
-        <p>Analysis · Pivot Tables</p>
+        <p data-en="Analysis · Pivot Tables" data-ar="التحليل · الجداول المحورية">Analysis · Pivot Tables</p>
       </div>
       <div class="skill-box">
-        <div class="skill-icon">🐙</div>
-        <h4>GitHub</h4>
-        <p>Version control · Projects</p>
+        <div class="skill-icon">🧹</div>
+        <h4 data-en="Data Cleaning" data-ar="تنظيف البيانات">Data Cleaning</h4>
+        <p data-en="Wrangling · Preprocessing" data-ar="معالجة البيانات · المعالجة المسبقة">Wrangling · Preprocessing</p>
+      </div>
+      <div class="skill-box">
+        <div class="skill-icon">📐</div>
+        <h4 data-en="Statistics" data-ar="الإحصاء">Statistics</h4>
+        <p data-en="Analysis · Inference" data-ar="التحليل · الاستنتاج">Analysis · Inference</p>
       </div>
       <div class="skill-box">
         <div class="skill-icon">☕</div>
         <h4>Java</h4>
-        <p>OOP · Logic</p>
+        <p data-en="OOP · Logic" data-ar="البرمجة الكائنية · المنطق">OOP · Logic</p>
       </div>
       <div class="skill-box">
         <div class="skill-icon">🌐</div>
         <h4>HTML &amp; CSS</h4>
-        <p>Web · Styling</p>
+        <p data-en="Web · Styling" data-ar="الويب · التنسيق">Web · Styling</p>
+      </div>
+      <div class="skill-box">
+        <div class="skill-icon">🐙</div>
+        <h4>GitHub</h4>
+        <p data-en="Version control · Projects" data-ar="التحكم بالإصدارات · المشاريع">Version control · Projects</p>
+      </div>
+    </div>
+
+    <p class="skills-category-label" data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</p>
+    <div class="skills-row">
+      <div class="skill-box">
+        <div class="skill-icon">🧩</div>
+        <h4 data-en="Problem Solving" data-ar="حل المشكلات">Problem Solving</h4>
+        <p data-en="Analytical · Critical thinking" data-ar="تحليلي · تفكير نقدي">Analytical · Critical thinking</p>
+      </div>
+      <div class="skill-box">
+        <div class="skill-icon">🤝</div>
+        <h4 data-en="Teamwork" data-ar="العمل الجماعي">Teamwork</h4>
+        <p data-en="Collaboration · Communication" data-ar="التعاون · التواصل">Collaboration · Communication</p>
+      </div>
+      <div class="skill-box">
+        <div class="skill-icon">🎤</div>
+        <h4 data-en="Presentation Skills" data-ar="مهارات التقديم">Presentation Skills</h4>
+        <p data-en="Storytelling · Public speaking" data-ar="سرد القصص · الحديث أمام الجمهور">Storytelling · Public speaking</p>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 Remas Alroubie. All rights reserved.</p>
+    <p data-en="© 2025 Remas Alroubie. All rights reserved." data-ar=".© 2025 ريماس الربيعي. جميع الحقوق محفوظة">© 2025 Remas Alroubie. All rights reserved.</p>
   </footer>
+
+  <script>
+    let isArabic = false;
+    function toggleLang() {
+      isArabic = !isArabic;
+      const btn = document.querySelector('.lang-btn');
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerHTML = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+      document.body.classList.toggle('rtl', isArabic);
+      btn.textContent = isArabic ? 'English' : 'العربية';
+    }
+  </script>
 
 </body>
 </html>
