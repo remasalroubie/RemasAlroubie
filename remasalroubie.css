@@ -245,7 +245,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
   height: 320px;
   object-fit: contain;
   border-radius: 12px;
-  background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 50%, #e8d5c4 100%);
+  background: #f0e8dc;
   padding: 2rem;
   border: 1px solid rgba(180,150,120,0.2);
 }
