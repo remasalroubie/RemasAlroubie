@@ -3,18 +3,18 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --pink-mid:     #e8a4c4;
-  --pink-soft:    #f2c4d8;
-  --pink-light:   #f9e8f0;
-  --purple-mid:   #b4a4e8;
-  --purple-soft:  #d4c8f2;
-  --purple-light: #ede8f9;
-  --gradient:     linear-gradient(135deg, #f9e8f0 0%, #ede8f9 50%, #d4c8f2 100%);
-  --text-dark:    #3a2a3f;
-  --text-mid:     #6b5070;
-  --text-light:   #a88ab0;
+  --pink-mid:     #c4a882;
+  --pink-soft:    #d4bc9a;
+  --pink-light:   #f0e8dc;
+  --purple-mid:   #7a6248;
+  --purple-soft:  #c8b49a;
+  --purple-light: #f5ede0;
+  --gradient:     linear-gradient(135deg, #f5ede0 0%, #ede0d4 50%, #e8d5c4 100%);
+  --text-dark:    #3a2a1f;
+  --text-mid:     #7a6248;
+  --text-light:   #a8906e;
   --white:        #ffffff;
-  --bg:           #fdf6fa;
+  --bg:           #fdf8f3;
 }
 
 html { scroll-behavior: smooth; }
@@ -36,7 +36,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(212,200,242,0.3);
+  border-bottom: 1px solid rgba(200,180,154,0.3);
 }
 
 .logo {
@@ -216,8 +216,8 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 
 .hero-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #d8b4fe, #c4b5fd, #a5b4fc);
-  color: #3b0764;
+  background: linear-gradient(135deg, #d4bc9a, #c4a882, #a8906e);
+  color: #3a2a1f;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -245,9 +245,9 @@ body.rtl .contact-item { flex-direction: row-reverse; }
   height: 320px;
   object-fit: contain;
   border-radius: 12px;
-  background: var(--gradient);
+  background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 50%, #e8d5c4 100%);
   padding: 2rem;
-  border: 1px solid rgba(212,200,242,0.4);
+  border: 1px solid rgba(180,150,120,0.2);
 }
 
 /* ======= PORTFOLIO ======= */
@@ -260,7 +260,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 
 .portfolio-card {
   background: var(--white);
-  border: 1px solid rgba(212,200,242,0.4);
+  border: 1px solid rgba(200,180,154,0.4);
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -268,7 +268,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 
 .portfolio-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(180,164,232,0.2);
+  box-shadow: 0 15px 35px rgba(122,98,72,0.15);
 }
 
 .port-img {
@@ -338,7 +338,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
   font-weight: 500;
   padding: 0.3rem 0.8rem;
   border-radius: 50px;
-  border: 1px solid rgba(212,200,242,0.5);
+  border: 1px solid rgba(200,180,154,0.5);
 }
 
 .port-team {
@@ -366,7 +366,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 
 .skill-box {
   background: var(--white);
-  border: 1px solid rgba(212,200,242,0.4);
+  border: 1px solid rgba(200,180,154,0.4);
   border-radius: 12px;
   padding: 2rem 1rem;
   text-align: center;
@@ -375,7 +375,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 
 .skill-box:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(180,164,232,0.2);
+  box-shadow: 0 10px 25px rgba(122,98,72,0.15);
 }
 
 .skill-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
@@ -400,7 +400,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 
 .cert-card {
   background: var(--white);
-  border: 1px solid rgba(212,200,242,0.4);
+  border: 1px solid rgba(200,180,154,0.4);
   border-radius: 16px;
   padding: 1.8rem;
   display: flex;
@@ -412,7 +412,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 
 .cert-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(180,164,232,0.2);
+  box-shadow: 0 12px 30px rgba(122,98,72,0.15);
 }
 
 .cert-icon {
@@ -554,7 +554,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
   gap: 0.5rem;
   padding: 0.5rem 1.1rem;
   border-radius: 50px;
-  border: 1px solid rgba(212,200,242,0.5);
+  border: 1px solid rgba(200,180,154,0.5);
   background: var(--white);
   text-decoration: none;
   font-size: 0.8rem;
@@ -582,7 +582,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
   width: 100%;
   padding: 0.85rem 1.1rem;
   background: var(--white);
-  border: 1px solid rgba(212,200,242,0.5);
+  border: 1px solid rgba(200,180,154,0.5);
   border-radius: 8px;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.9rem;
@@ -599,7 +599,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 /* ======= FOOTER ======= */
 footer {
   background: var(--white);
-  border-top: 1px solid rgba(212,200,242,0.3);
+  border-top: 1px solid rgba(200,180,154,0.3);
   padding: 2rem 5rem;
   text-align: center;
   font-size: 0.82rem;
