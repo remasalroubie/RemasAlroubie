@@ -5,48 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Certificates — Remas Alroubie</title>
   <link rel="stylesheet" href="remasalroubie.css" />
-  <style>
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-overlay.active {
-      display: flex;
-    }
-    .modal-overlay img {
-      max-width: 90%;
-      max-height: 90vh;
-      border-radius: 12px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-    }
-    .modal-close {
-      position: fixed;
-      top: 1.2rem;
-      right: 1.5rem;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      background: none;
-      border: none;
-      line-height: 1;
-    }
-    .cert-card {
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .cert-card:hover {
-      transform: translateY(-4px);
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Modal -->
+  <div id="progress-bar"></div>
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
   <div class="modal-overlay" id="certModal" onclick="closeModal(event)">
     <button class="modal-close" onclick="closeCertModal()">✕</button>
     <img id="modalImg" src="" alt="Certificate" />
@@ -69,8 +33,7 @@
     <div class="underline"></div>
 
     <div class="cert-grid">
-
-      <!-- 2025 -->
+    
       <div class="cert-card" onclick="openCertModal('images/cert-data-structures.jpg')">
         <div class="cert-icon">🗂️</div>
         <div class="cert-body">
@@ -81,18 +44,7 @@
         </div>
       </div>
 
-      <div class="cert-card" onclick="openCertModal('images/cert-java.jpg')">
-        <div class="cert-icon">💻</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="Satar Platform · Tuwaiq Academy" data-ar="منصة سَطر · أكاديمية طويق">Satar Platform · Tuwaiq Academy</span>
-          <h3 data-en="Java 103 — Advanced Level" data-ar="جافا 103 — المستوى المتقدم">Java 103 — Advanced Level</h3>
-          <p data-en="Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours." data-ar="دورة برمجة Java متقدمة تغطي مفاهيم البرمجة الكائنية وحل المشكلات. 7 ساعات تدريبية.">Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours.</p>
-          <span class="cert-date">2025</span>
-        </div>
-      </div>
-
-      <!-- 2024 -->
-      <div class="cert-card" onclick="openCertModal('images/cert-digital-design.jpg')">
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-digital-design.jpg')">
         <div class="cert-icon">🎨</div>
         <div class="cert-body">
           <span class="cert-platform" data-en="Ministry of Education · Saudi Arabia" data-ar="وزارة التعليم · المملكة العربية السعودية">Ministry of Education · Saudi Arabia</span>
@@ -102,7 +54,17 @@
         </div>
       </div>
 
-      <div class="cert-card" onclick="openCertModal('images/cert-hr.jpg')">
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-java.jpg')">
+        <div class="cert-icon">💻</div>
+        <div class="cert-body">
+          <span class="cert-platform" data-en="Satar Platform · Tuwaiq Academy" data-ar="منصة سَطر · أكاديمية طويق">Satar Platform · Tuwaiq Academy</span>
+          <h3 data-en="Java 103 — Advanced Level" data-ar="جافا 103 — المستوى المتقدم">Java 103 — Advanced Level</h3>
+          <p data-en="Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours." data-ar="دورة برمجة Java متقدمة تغطي مفاهيم البرمجة الكائنية وحل المشكلات. 7 ساعات تدريبية.">Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours.</p>
+          <span class="cert-date">2025</span>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-hr.jpg')">
         <div class="cert-icon">👥</div>
         <div class="cert-body">
           <span class="cert-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
@@ -112,7 +74,7 @@
         </div>
       </div>
 
-      <div class="cert-card" onclick="openCertModal('images/cert-3d.jpg')">
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-3d.jpg')">
         <div class="cert-icon">🖨️</div>
         <div class="cert-body">
           <span class="cert-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
@@ -122,8 +84,7 @@
         </div>
       </div>
 
-      <!-- 2023 -->
-      <div class="cert-card" onclick="openCertModal('images/cert-accounting.jpg')">
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-accounting.jpg')">
         <div class="cert-icon">📊</div>
         <div class="cert-body">
           <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
@@ -133,7 +94,7 @@
         </div>
       </div>
 
-      <div class="cert-card" onclick="openCertModal('images/cert-linkedin.jpg')">
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-linkedin.jpg')">
         <div class="cert-icon">🔍</div>
         <div class="cert-body">
           <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
@@ -143,7 +104,7 @@
         </div>
       </div>
 
-      <div class="cert-card" onclick="openCertModal('images/cert-tech.jpg')">
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-tech.jpg')">
         <div class="cert-icon">🤖</div>
         <div class="cert-body">
           <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
@@ -153,7 +114,7 @@
         </div>
       </div>
 
-      <div class="cert-card" onclick="openCertModal('images/cert-partnerships.jpg')">
+      <div class="cert-card fade-in" onclick="openCertModal('images/cert-partnerships.jpg')">
         <div class="cert-icon">🤝</div>
         <div class="cert-body">
           <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
@@ -182,8 +143,8 @@
       btn.textContent = isArabic ? 'English' : 'العربية';
     }
 
-    function openCertModal(imgSrc) {
-      document.getElementById('modalImg').src = imgSrc;
+    function openCertModal(src) {
+      document.getElementById('modalImg').src = src;
       document.getElementById('certModal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -193,15 +154,23 @@
       document.body.style.overflow = '';
     }
 
-    function closeModal(event) {
-      if (event.target === document.getElementById('certModal')) {
-        closeCertModal();
-      }
+    function closeModal(e) {
+      if (e.target === document.getElementById('certModal')) closeCertModal();
     }
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeCertModal();
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCertModal(); });
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('progress-bar').style.width = (scrollTop / docHeight * 100) + '%';
+      document.getElementById('back-to-top').classList.toggle('visible', scrollTop > 300);
     });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
 </body>

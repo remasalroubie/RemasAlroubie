@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <div id="progress-bar"></div>
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
   <nav>
     <span class="logo">REMAS ALROUBIE</span>
     <ul>
@@ -22,17 +25,18 @@
 
   <section class="hero">
     <div class="hero-text">
-      <p class="hero-greeting" data-en="Hi There!" data-ar="!أهلاً">Hi There!</p>
+      <p class="hero-greeting" data-en="Hi There!" data-ar="! أهلاً">Hi There!</p>
       <h1 data-en="I'm Remas Alroubie" data-ar="أنا ريماس الربيعي">I'm Remas Alroubie</h1>
-      <span class="hero-badge" data-en="Data Scientist &amp; Data Analyst" data-ar="عالمة بيانات ومحللة بيانات">Data Scientist &amp; Data Analyst</span>
+      <span class="hero-badge">
+        <span id="typed-text"></span><span class="typing-cursor"></span>
+      </span>
       <p class="hero-desc"
         data-en="Turning raw data into clear, meaningful insights. I'm a Data Science student at Umm Al-Qura University with a passion for uncovering patterns hidden in data. I enjoy working on analytical problems, building dashboards, and using tools like Python, Power BI, and SQL to tell data-driven stories that make an impact."
-        data-ar="أحوّل البيانات الخام إلى رؤى واضحة وذات معنى. 
-        أنا طالبة علم بيانات في جامعة أم القرى، شغوفة باكتشاف الأنماط المخفية في البيانات. أستمتع بحل المشكلات التحليلية وبناء لوحات البيانات واستخدام أدوات مثل Python وPower BI وSQ لأروي قصصاً مبنية على البيانات تُحدث فرقاً حقيقياً.">
+        data-ar="أحوّل البيانات الخام إلى رؤى واضحة وذات معنى. أنا طالبة علم بيانات في جامعة أم القرى، شغوفة باكتشاف الأنماط المخفية في البيانات. أستمتع بحل المشكلات التحليلية وبناء لوحات البيانات واستخدام أدوات مثل Python وPower BI وSQL لأروي قصصاً مبنية على البيانات تُحدث فرقاً حقيقياً.">
         Turning raw data into clear, meaningful insights. I'm a Data Science student at Umm Al-Qura University with a passion for uncovering patterns hidden in data. I enjoy working on analytical problems, building dashboards, and using tools like Python, Power BI, and SQL to tell data-driven stories that make an impact.
       </p>
       <div class="hero-btns">
-   <a href="contact.html" class="btn-outline-dark" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
+        <a href="contact.html" class="btn-outline-dark" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
         <a href="mywork.html" class="btn-outline-dark" data-en="View My Work" data-ar="أعمالي">View My Work</a>
       </div>
     </div>
@@ -46,6 +50,30 @@
   </footer>
 
   <script>
+    // Typing Animation
+    const words = ['Data Scientist', 'Data Analyst', 'Problem Solver'];
+    const wordsAr = ['عالمة بيانات', 'محللة بيانات', 'حلول لجميع المشكلات'];
+    let wordIndex = 0, charIndex = 0, deleting = false;
+
+    function type() {
+      const isAr = document.body.classList.contains('rtl');
+      const list = isAr ? wordsAr : words;
+      const current = list[wordIndex];
+      const el = document.getElementById('typed-text');
+      if (!deleting) {
+        el.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) { deleting = true; setTimeout(type, 1500); return; }
+      } else {
+        el.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) { deleting = false; wordIndex = (wordIndex + 1) % list.length; }
+      }
+      setTimeout(type, deleting ? 60 : 100);
+    }
+    type();
+
+    // Language Toggle
     let isArabic = false;
     function toggleLang() {
       isArabic = !isArabic;
@@ -56,6 +84,24 @@
       document.body.classList.toggle('rtl', isArabic);
       btn.textContent = isArabic ? 'English' : 'العربية';
     }
+
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progress-bar').style.width = progress + '%';
+
+      // Back to Top
+      const btn = document.getElementById('back-to-top');
+      btn.classList.toggle('visible', scrollTop > 300);
+    });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
 </body>

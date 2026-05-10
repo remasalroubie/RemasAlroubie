@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <div id="progress-bar"></div>
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
   <nav>
     <span class="logo">REMAS ALROUBIE</span>
     <ul>
@@ -26,15 +29,13 @@
 
     <div class="portfolio-grid">
 
-      <!-- PROJECT 1: Personal Portfolio -->
-      <div class="portfolio-card">
+      <div class="portfolio-card fade-in">
         <div class="port-img"></div>
         <div class="port-body">
-          <span class="port-tag" data-en="Solo Project · Personal Portfolio · 2025" data-ar="مشروع فردي · بورتفوليو شخصي · 2025">Solo Project · Personal Portfolio · 2025</span>
+          <span class="port-tag" data-en="Solo Project · Personal Portfolio · 2026" data-ar="مشروع فردي · بورتفوليو شخصي · 2026">Solo Project · Personal Portfolio · 2026</span>
           <h3 data-en="Personal Portfolio Website" data-ar="الموقع الشخصي">Personal Portfolio Website</h3>
           <p data-en="A fully responsive personal portfolio website designed and built from scratch using HTML and CSS. The site showcases my skills, projects, and certificates in a clean and elegant style." data-ar="موقع بورتفوليو شخصي متجاوب صممته وبنيته من الصفر باستخدام HTML وCSS. يعرض الموقع مهاراتي ومشاريعي وشهاداتي بأسلوب أنيق ومرتب.">A fully responsive personal portfolio website designed and built from scratch using HTML and CSS. The site showcases my skills, projects, and certificates in a clean and elegant style.</p>
           <p data-en="The website supports both Arabic and English with a one-click language toggle, and is hosted live on GitHub Pages. It reflects my journey as a Data Science student and my growing interest in web development." data-ar="يدعم الموقع اللغتين العربية والإنجليزية بزر تبديل واحد، ومنشور على GitHub Pages. يعكس مسيرتي كطالبة علم بيانات واهتمامي المتنامي بتطوير الويب.">The website supports both Arabic and English with a one-click language toggle, and is hosted live on GitHub Pages. It reflects my journey as a Data Science student and my growing interest in web development.</p>
-
           <div class="port-details">
             <div class="port-detail-item">
               <span class="port-detail-label" data-en="Built with" data-ar="بُني بـ">Built with</span>
@@ -44,31 +45,35 @@
                 <span class="port-pill">GitHub Pages</span>
               </div>
             </div>
-
             <div class="port-detail-item">
               <span class="port-detail-label" data-en="Features" data-ar="المميزات">Features</span>
               <div class="port-tags-row">
-                <span class="port-pill" data-en="Bilingual (AR / EN)" data-ar="ثنائي اللغة (عربي / إنجليزي)">Bilingual (AR / EN)</span>
+                <span class="port-pill" data-en="Bilingual (AR / EN)" data-ar="ثنائي اللغة">Bilingual (AR / EN)</span>
                 <span class="port-pill" data-en="Responsive Design" data-ar="تصميم متجاوب">Responsive Design</span>
                 <span class="port-pill" data-en="Custom CSS" data-ar="تصميم مخصص">Custom CSS</span>
                 <span class="port-pill" data-en="Contact Form" data-ar="نموذج تواصل">Contact Form</span>
               </div>
             </div>
+            <div class="port-detail-item">
+              <span class="port-detail-label" data-en="Team" data-ar="الفريق">Team</span>
+              <p class="port-team"
+                data-en="Remas Al-Roubie"
+                data-ar="ريماس الربيعي">
+                Remas Al-Roubie 
+              </p>
+            </div>
           </div>
-
           <a href="https://remasalroubie.github.io/RemasAlroubie/" target="_blank" class="btn-primary" style="margin-top:1.5rem; display:inline-block;" data-en="Visit Website →" data-ar="زيارة الموقع →">Visit Website →</a>
         </div>
       </div>
 
-      <!-- PROJECT 2: Health and Happiness -->
-      <div class="portfolio-card">
+      <div class="portfolio-card fade-in">
         <div class="port-img"></div>
         <div class="port-body">
           <span class="port-tag" data-en="Group Project · High School Graduation · 2024" data-ar="مشروع جماعي · تخرج ثانوي · 2024">Group Project · High School Graduation · 2024</span>
           <h3 data-en="Health and Happiness" data-ar="الصحة والسعادة">Health and Happiness</h3>
           <p data-en="A collaborative Arabic-language web project built during my final year at secondary school in 2024, developed as a graduation project alongside a team of four classmates." data-ar="مشروع ويب عربي جماعي بنيته خلال سنتي الأخيرة في الثانوية عام 2024، طوّرته كمشروع تخرج مع فريق من أربع زميلات.">A collaborative Arabic-language web project built during my final year at secondary school in 2024, developed as a graduation project alongside a team of four classmates.</p>
           <p data-en="The website aims to build a healthier community by helping users find trusted health food stores, dietary schedules, and personalized recommendations — all based on their specific health condition." data-ar="يهدف الموقع إلى بناء مجتمع أكثر صحة من خلال مساعدة المستخدمين في إيجاد متاجر غذاء صحي موثوقة وجداول غذائية وتوصيات مخصصة بحسب حالتهم الصحية.">The website aims to build a healthier community by helping users find trusted health food stores, dietary schedules, and personalized recommendations — all based on their specific health condition.</p>
-
           <div class="port-details">
             <div class="port-detail-item">
               <span class="port-detail-label" data-en="Health Topics Covered" data-ar="المواضيع الصحية">Health Topics Covered</span>
@@ -80,7 +85,6 @@
                 <span class="port-pill" data-en="High Blood Pressure" data-ar="ضغط الدم">High Blood Pressure</span>
               </div>
             </div>
-
             <div class="port-detail-item">
               <span class="port-detail-label" data-en="Each condition includes" data-ar="كل حالة تتضمن">Each condition includes</span>
               <div class="port-tags-row">
@@ -90,7 +94,6 @@
                 <span class="port-pill" data-en="Trusted Stores" data-ar="متاجر موثوقة">Trusted Stores</span>
               </div>
             </div>
-
             <div class="port-detail-item">
               <span class="port-detail-label" data-en="Built with" data-ar="بُني بـ">Built with</span>
               <div class="port-tags-row">
@@ -99,17 +102,15 @@
                 <span class="port-pill">Adobe Color</span>
               </div>
             </div>
-
             <div class="port-detail-item">
               <span class="port-detail-label" data-en="Team" data-ar="الفريق">Team</span>
               <p class="port-team"
                 data-en="Remas Al-Rubaie · Fatima Al-Qarni · Ruyof Al-Thubaiti · Dana Al-Rubaiqan · Jumana Al-Sulaymani"
                 data-ar="ريماس الربيعي · فاطمة القرني · ريوف الثبيتي · دانة الربيقان · جمانة السليماني">
-                Remas Al-Rubaie · Fatima Al-Qarni · Ruyof Al-Thubaiti · Dana Al-Rubaiqan · Jumana Al-Sulaymani
+                Remas Al-Roubie · Fatima Al-Qarni · Ruyof Al-Thubaiti · Dana Al-Rubaiqan · Jumana Al-Sulaymani
               </p>
             </div>
           </div>
-
           <a href="https://healthandhappinessesme.wordpress.com/" target="_blank" class="btn-primary" style="margin-top:1.5rem; display:inline-block;" data-en="Visit Website →" data-ar="زيارة الموقع →">Visit Website →</a>
         </div>
       </div>
@@ -132,6 +133,18 @@
       document.body.classList.toggle('rtl', isArabic);
       btn.textContent = isArabic ? 'English' : 'العربية';
     }
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('progress-bar').style.width = (scrollTop / docHeight * 100) + '%';
+      document.getElementById('back-to-top').classList.toggle('visible', scrollTop > 300);
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
 </body>

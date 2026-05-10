@@ -25,6 +25,60 @@ body {
   color: var(--text-dark);
 }
 
+/* ======= SCROLL PROGRESS BAR ======= */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(135deg, var(--pink-mid), var(--purple-mid));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ======= BACK TO TOP ======= */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-mid), var(--purple-mid));
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(122,98,72,0.3);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#back-to-top:hover { transform: translateY(-3px); }
+
+/* ======= FADE IN ON SCROLL ======= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ======= NAVBAR ======= */
 nav {
   display: flex;
@@ -100,6 +154,7 @@ body.rtl .port-detail-item {
   padding-right: 1rem;
 }
 body.rtl .contact-item { flex-direction: row-reverse; }
+body.rtl #back-to-top { right: auto; left: 2rem; }
 
 /* ======= BUTTONS ======= */
 .btn-outline-dark {
@@ -227,6 +282,21 @@ body.rtl .contact-item { flex-direction: row-reverse; }
   border: none;
 }
 
+/* Typing cursor */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--purple-mid);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 .hero-desc {
   font-size: 0.95rem;
   color: var(--text-mid);
@@ -253,8 +323,9 @@ body.rtl .contact-item { flex-direction: row-reverse; }
 /* ======= PORTFOLIO ======= */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  max-width: 750px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -469,7 +540,7 @@ body.rtl .contact-item { flex-direction: row-reverse; }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   z-index: 9999;
   justify-content: center;
   align-items: center;
@@ -627,6 +698,7 @@ footer {
   .hero-desc { max-width: 100%; }
   .hero-btns { justify-content: center; }
   .page-section { padding: 3rem 1.5rem; }
+  .portfolio-grid { grid-template-columns: 1fr; }
   .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
   .cert-grid { grid-template-columns: 1fr; }
   footer { padding: 1.5rem; }
