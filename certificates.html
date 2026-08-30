@@ -5,6 +5,256 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Certificates — Remas Alroubie</title>
   <link rel="stylesheet" href="remasalroubie.css" />
+  <script src="lang.js"></script>
+  <style>
+    /* ===== HERO ===== */
+    .cert-hero {
+      padding: 7rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 60%, #e8d5c4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cert-hero::before {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: rgba(196,168,130,0.15);
+      top: -80px; right: -80px;
+      pointer-events: none;
+    }
+    .cert-hero::after {
+      content: '';
+      position: absolute;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(196,168,130,0.1);
+      bottom: -60px; left: -60px;
+      pointer-events: none;
+    }
+    .cert-hero-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .cert-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+    .cert-hero p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 460px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ===== COUNTER STATS ===== */
+    .cert-stats {
+      background: white;
+      border-top: 1px solid rgba(200,180,154,0.2);
+      border-bottom: 1px solid rgba(200,180,154,0.2);
+      padding: 3rem 2rem;
+    }
+    .cert-stats-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .cert-stat {
+      padding: 1.5rem 1rem;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .cert-stat:hover { transform: translateY(-4px); }
+    .cert-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #c4a882, #7a6248);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .cert-stat-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    /* ===== CERT GRID ===== */
+    .cert-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .cert-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .section-divider {
+      width: 50px; height: 3px;
+      background: linear-gradient(135deg, var(--pink-mid), var(--purple-mid));
+      margin: 0.6rem auto 3rem;
+      border-radius: 2px;
+    }
+
+    /* Big cert cards with image on top */
+    .cert-big-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-big-card {
+      background: white;
+      border: 1px solid rgba(200,180,154,0.3);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(122,98,72,0.06);
+    }
+    .cert-big-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(122,98,72,0.15);
+    }
+
+    .cert-big-img {
+      height: 160px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #f5ede0, #e8d5c4);
+    }
+    .cert-big-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .cert-big-card:hover .cert-big-img img { transform: scale(1.05); }
+
+    /* Fallback when no image */
+    .cert-big-img-fallback {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    /* Zoom overlay on hover */
+    .cert-big-img::after {
+      content: '🔍';
+      position: absolute;
+      inset: 0;
+      background: rgba(58,42,31,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .cert-big-card:hover .cert-big-img::after { opacity: 1; }
+
+    .cert-big-body { padding: 1.3rem; }
+    .cert-big-platform {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--purple-mid);
+      margin-bottom: 0.4rem;
+    }
+    .cert-big-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .cert-big-body p {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+    .cert-big-date {
+      display: inline-block;
+      background: var(--purple-light);
+      color: var(--text-mid);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.8rem;
+      border-radius: 50px;
+      border: 1px solid rgba(200,180,154,0.4);
+    }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-overlay img {
+      max-width: 90%;
+      max-height: 88vh;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .modal-close {
+      position: fixed;
+      top: 1.2rem; right: 1.5rem;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.3); }
+
+    @media (max-width: 600px) {
+      .cert-stats-inner { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .cert-big-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,7 +267,7 @@
   </div>
 
   <nav>
-     <a href="index.html" class="logo">REMAS ALROUBIE</a>
+    <a href="index.html" class="logo">REMAS ALROUBIE</a>
     <ul>
       <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
       <li><a href="mywork.html" data-en="Work" data-ar="أعمالي">Work</a></li>
@@ -28,99 +278,175 @@
     </ul>
   </nav>
 
-  <div class="page-section">
-    <h2 class="sec-title" data-en="Certificates" data-ar="الشهادات">Certificates</h2>
-    <div class="underline"></div>
+  <!-- HERO -->
+  <div class="cert-hero">
+    <p class="cert-hero-label" data-en="My Learning Journey" data-ar="مسيرتي التعليمية">My Learning Journey</p>
+    <h1 data-en="Certificates" data-ar="شهاداتي">Certificates</h1>
+    <p data-en="A collection of courses and programs I've completed across technology, design, and professional development." data-ar="مجموعة من الدورات والبرامج التي أتممتها في مجالات التقنية والتصميم والتطوير المهني.">A collection of courses and programs I've completed across technology, design, and professional development.</p>
+  </div>
 
-    <div class="cert-grid">
-    
-      <div class="cert-card" onclick="openCertModal('images/cert-data-structures.jpg')">
-        <div class="cert-icon">🗂️</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="KorsatCode" data-ar="كورسات كود">KorsatCode</span>
+  <!-- COUNTER STATS -->
+  <div class="cert-stats">
+    <div class="cert-stats-inner">
+      <div class="cert-stat fade-in">
+        <div class="cert-stat-num" id="count-certs">0</div>
+        <div class="cert-stat-label" data-en="Certificates" data-ar="شهادة">Certificates</div>
+      </div>
+      <div class="cert-stat fade-in">
+        <div class="cert-stat-num" id="count-hours">0</div>
+        <div class="cert-stat-label" data-en="Training Hours" data-ar="ساعة تدريبية">Training Hours</div>
+      </div>
+      <div class="cert-stat fade-in">
+        <div class="cert-stat-num" id="count-platforms">0</div>
+        <div class="cert-stat-label" data-en="Platforms" data-ar="منصة">Platforms</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATES GRID -->
+  <div class="cert-section">
+    <p class="cert-section-label" data-en="All Certificates — Newest First" data-ar="جميع الشهادات — الأحدث أولاً">All Certificates — Newest First</p>
+    <div class="section-divider"></div>
+
+    <div class="cert-big-grid">
+
+      <!-- 1. Microsoft Fabric — June 2026 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-microsoft-fabric.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-microsoft-fabric.jpg" alt="Microsoft Fabric Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>🏢</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="Microsoft" data-ar="مايكروسوفت">Microsoft</span>
+          <h3 data-en="Get Started with Data Warehouses in Microsoft Fabric" data-ar="البدء مع مستودعات البيانات في Microsoft Fabric">Get Started with Data Warehouses in Microsoft Fabric</h3>
+          <p data-en="Completed Microsoft's official course on data warehousing using Microsoft Fabric." data-ar="أتممت دورة مايكروسوفت الرسمية في مستودعات البيانات باستخدام Microsoft Fabric.">Completed Microsoft's official course on data warehousing using Microsoft Fabric.</p>
+          <span class="cert-big-date">June 2026</span>
+        </div>
+      </div>
+
+      <!-- 2. Data Structures — 2025 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-data-structures.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-data-structures.jpg" alt="Data Structures Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>🗂️</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="KorsatCode" data-ar="كورسات كود">KorsatCode</span>
           <h3 data-en="Data Structures Full Course" data-ar="دورة هياكل البيانات الكاملة">Data Structures Full Course</h3>
           <p data-en="Completed a full Arabic-language course on Data Structures from KorsatCode." data-ar="أتممت دورة كاملة باللغة العربية في هياكل البيانات من منصة كورسات كود.">Completed a full Arabic-language course on Data Structures from KorsatCode.</p>
-          <span class="cert-date">2025</span>
+          <span class="cert-big-date">2025</span>
         </div>
       </div>
 
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-digital-design.jpg')">
-        <div class="cert-icon">🎨</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="Ministry of Education · Saudi Arabia" data-ar="وزارة التعليم · المملكة العربية السعودية">Ministry of Education · Saudi Arabia</span>
-          <h3 data-en="Digital Design" data-ar="التصميم الرقمي">Digital Design</h3>
-          <p data-en="Completed an elective program in Digital Design during the third semester of the academic year 1445H." data-ar="أتممت برنامجاً اختيارياً في التصميم الرقمي خلال الفصل الدراسي الثالث للعام الدراسي 1445هـ.">Completed an elective program in Digital Design during the third semester of the academic year 1445H.</p>
-          <span class="cert-date">2024</span>
+      <!-- 3. Java 103 — 2025 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-java.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-java.jpg" alt="Java Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>💻</div>'" />
         </div>
-      </div>
-
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-java.jpg')">
-        <div class="cert-icon">💻</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="Satar Platform · Tuwaiq Academy" data-ar="منصة سَطر · أكاديمية طويق">Satar Platform · Tuwaiq Academy</span>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="Satar · Tuwaiq Academy" data-ar="منصة سَطر · أكاديمية طويق">Satar · Tuwaiq Academy</span>
           <h3 data-en="Java 103 — Advanced Level" data-ar="جافا 103 — المستوى المتقدم">Java 103 — Advanced Level</h3>
-          <p data-en="Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours." data-ar="دورة برمجة Java متقدمة تغطي مفاهيم البرمجة الكائنية وحل المشكلات. 7 ساعات تدريبية.">Advanced Java programming course covering object-oriented concepts and problem-solving. 7 training hours.</p>
-          <span class="cert-date">2025</span>
+          <p data-en="Advanced Java programming course covering OOP concepts and problem-solving. 7 training hours." data-ar="دورة برمجة Java متقدمة تغطي مفاهيم البرمجة الكائنية وحل المشكلات. 7 ساعات تدريبية.">Advanced Java programming course covering OOP concepts and problem-solving. 7 training hours.</p>
+          <span class="cert-big-date">2025</span>
         </div>
       </div>
 
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-hr.jpg')">
-        <div class="cert-icon">👥</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
+      <!-- 4. Digital Design — 2024 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-digital-design.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-digital-design.jpg" alt="Digital Design Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>🎨</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="Ministry of Education · Saudi Arabia" data-ar="وزارة التعليم · المملكة العربية السعودية">Ministry of Education · Saudi Arabia</span>
+          <h3 data-en="Digital Design" data-ar="التصميم الرقمي">Digital Design</h3>
+          <p data-en="Elective program in Digital Design during the third semester of the academic year 1445H." data-ar="برنامج اختياري في التصميم الرقمي خلال الفصل الدراسي الثالث للعام الدراسي 1445هـ.">Elective program in Digital Design during the third semester of the academic year 1445H.</p>
+          <span class="cert-big-date">2024</span>
+        </div>
+      </div>
+
+      <!-- 5. HR — 2024 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-hr.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-hr.jpg" alt="HR Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>👥</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
           <h3 data-en="Introduction to Human Resources Functions" data-ar="مقدمة في مهام الموارد البشرية">Introduction to Human Resources Functions</h3>
-          <p data-en="An introduction to core HR functions and workplace practices. 4 training hours." data-ar="مقدمة في وظائف الموارد البشرية الأساسية وممارسات بيئة العمل. 4 ساعات تدريبية.">An introduction to core HR functions and workplace practices. 4 training hours.</p>
-          <span class="cert-date">2024</span>
+          <p data-en="Introduction to core HR functions and workplace practices. 4 training hours." data-ar="مقدمة في وظائف الموارد البشرية الأساسية. 4 ساعات تدريبية.">Introduction to core HR functions and workplace practices. 4 training hours.</p>
+          <span class="cert-big-date">2024</span>
         </div>
       </div>
 
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-3d.jpg')">
-        <div class="cert-icon">🖨️</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
+      <!-- 6. 3D Printing — 2024 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-3d.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-3d.jpg" alt="3D Printing Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>🖨️</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="HADAF · Doroob" data-ar="هدف · دروب">HADAF · Doroob</span>
           <h3 data-en="3D Printing in the Labor Market" data-ar="الطباعة ثلاثية الأبعاد في سوق العمل">3D Printing in the Labor Market</h3>
-          <p data-en="Explored the applications and future of 3D printing technology in professional environments. 2 training hours." data-ar="استكشاف تطبيقات ومستقبل تقنية الطباعة ثلاثية الأبعاد في البيئات المهنية. ساعتان تدريبيتان.">Explored the applications and future of 3D printing technology in professional environments. 2 training hours.</p>
-          <span class="cert-date">2024</span>
+          <p data-en="Applications and future of 3D printing technology in professional environments. 2 training hours." data-ar="تطبيقات ومستقبل تقنية الطباعة ثلاثية الأبعاد. ساعتان تدريبيتان.">Applications and future of 3D printing technology in professional environments. 2 training hours.</p>
+          <span class="cert-big-date">2024</span>
         </div>
       </div>
 
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-accounting.jpg')">
-        <div class="cert-icon">📊</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+      <!-- 7. Accounting — 2023 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-accounting.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-accounting.jpg" alt="Accounting Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>📊</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="Doroob · HRDF" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · HRDF</span>
           <h3 data-en="International Accounting Standards in the Public Sector" data-ar="معايير المحاسبة الدولية في القطاع العام">International Accounting Standards in the Public Sector</h3>
-          <p data-en="Covered IPSAS principles and their application in public sector financial reporting. 5 training hours." data-ar="تناولت مبادئ معايير المحاسبة الدولية للقطاع العام وتطبيقها في التقارير المالية. 5 ساعات تدريبية.">Covered IPSAS principles and their application in public sector financial reporting. 5 training hours.</p>
-          <span class="cert-date">2023</span>
+          <p data-en="IPSAS principles and their application in public sector financial reporting. 5 training hours." data-ar="مبادئ معايير المحاسبة الدولية للقطاع العام وتطبيقها. 5 ساعات تدريبية.">IPSAS principles and their application in public sector financial reporting. 5 training hours.</p>
+          <span class="cert-big-date">2023</span>
         </div>
       </div>
 
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-linkedin.jpg')">
-        <div class="cert-icon">🔍</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+      <!-- 8. LinkedIn — 2023 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-linkedin.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-linkedin.jpg" alt="LinkedIn Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>🔍</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="Doroob · HRDF" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · HRDF</span>
           <h3 data-en="Talent Acquisition via LinkedIn" data-ar="استقطاب المواهب عبر LinkedIn">Talent Acquisition via LinkedIn</h3>
-          <p data-en="Learned strategies for sourcing and attracting talent using LinkedIn effectively. 1 training hour." data-ar="تعلّمت استراتيجيات استقطاب المواهب واستخدام LinkedIn بفاعلية. ساعة تدريبية.">Learned strategies for sourcing and attracting talent using LinkedIn effectively. 1 training hour.</p>
-          <span class="cert-date">2023</span>
+          <p data-en="Strategies for sourcing and attracting talent using LinkedIn effectively. 1 training hour." data-ar="استراتيجيات استقطاب المواهب واستخدام LinkedIn بفاعلية. ساعة تدريبية.">Strategies for sourcing and attracting talent using LinkedIn effectively. 1 training hour.</p>
+          <span class="cert-big-date">2023</span>
         </div>
       </div>
 
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-tech.jpg')">
-        <div class="cert-icon">🤖</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+      <!-- 9. New Technologies — 2023 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-tech.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-tech.jpg" alt="Tech Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>🤖</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="Doroob · HRDF" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · HRDF</span>
           <h3 data-en="New Technologies and Their Impact on Future Jobs" data-ar="التقنيات الحديثة وأثرها على وظائف المستقبل">New Technologies and Their Impact on Future Jobs</h3>
-          <p data-en="An overview of emerging technologies and how they are reshaping career paths and the job market. 1 training hour." data-ar="نظرة عامة على التقنيات الناشئة وكيف تعيد تشكيل المسارات المهنية وسوق العمل. ساعة تدريبية.">An overview of emerging technologies and how they are reshaping career paths and the job market. 1 training hour.</p>
-          <span class="cert-date">2023</span>
+          <p data-en="Emerging technologies and how they reshape career paths and the job market. 1 training hour." data-ar="التقنيات الناشئة وكيف تعيد تشكيل المسارات المهنية وسوق العمل. ساعة تدريبية.">Emerging technologies and how they reshape career paths and the job market. 1 training hour.</p>
+          <span class="cert-big-date">2023</span>
         </div>
       </div>
 
-      <div class="cert-card fade-in" onclick="openCertModal('images/cert-partnerships.jpg')">
-        <div class="cert-icon">🤝</div>
-        <div class="cert-body">
-          <span class="cert-platform" data-en="Doroob · Human Resources Development Fund" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · Human Resources Development Fund</span>
+      <!-- 10. Partnerships — 2023 -->
+      <div class="cert-big-card fade-in" onclick="openCertModal('images/cert-partnerships.jpg')">
+        <div class="cert-big-img">
+          <img src="images/cert-partnerships.jpg" alt="Partnerships Certificate"
+            onerror="this.parentElement.innerHTML='<div class=\'cert-big-img-fallback\'>🤝</div>'" />
+        </div>
+        <div class="cert-big-body">
+          <span class="cert-big-platform" data-en="Doroob · HRDF" data-ar="دروب · صندوق تنمية الموارد البشرية">Doroob · HRDF</span>
           <h3 data-en="Partnerships Activation" data-ar="تفعيل الشراكات">Partnerships Activation</h3>
-          <p data-en="Focused on building and activating effective partnerships within organizational and community contexts. 2 training hours." data-ar="تركّزت على بناء وتفعيل الشراكات الفعّالة في السياقات المؤسسية والمجتمعية. ساعتان تدريبيتان.">Focused on building and activating effective partnerships within organizational and community contexts. 2 training hours.</p>
-          <span class="cert-date">2023</span>
+          <p data-en="Building and activating effective partnerships within organizational and community contexts. 2 training hours." data-ar="بناء وتفعيل الشراكات الفعّالة في السياقات المؤسسية والمجتمعية. ساعتان تدريبيتان.">Building and activating effective partnerships within organizational and community contexts. 2 training hours.</p>
+          <span class="cert-big-date">2023</span>
         </div>
       </div>
 
@@ -132,34 +458,48 @@
   </footer>
 
   <script>
-    let isArabic = false;
-    function toggleLang() {
-      isArabic = !isArabic;
-      const btn = document.querySelector('.lang-btn');
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.innerHTML = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-      });
-      document.body.classList.toggle('rtl', isArabic);
-      btn.textContent = isArabic ? 'English' : 'العربية';
-    }
-
+    // ===== MODAL =====
     function openCertModal(src) {
       document.getElementById('modalImg').src = src;
       document.getElementById('certModal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-
     function closeCertModal() {
       document.getElementById('certModal').classList.remove('active');
       document.body.style.overflow = '';
     }
-
     function closeModal(e) {
       if (e.target === document.getElementById('certModal')) closeCertModal();
     }
-
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCertModal(); });
 
+    // ===== COUNTER ANIMATION =====
+    function animateCounter(id, target, duration) {
+      const el = document.getElementById(id);
+      let start = 0;
+      const step = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { el.textContent = target; clearInterval(timer); }
+        else { el.textContent = Math.floor(start); }
+      }, 16);
+    }
+
+    // Start counters when stats section is visible
+    let counted = false;
+    const statsObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !counted) {
+          counted = true;
+          animateCounter('count-certs', 10, 1200);
+          animateCounter('count-hours', 23, 1500);
+          animateCounter('count-platforms', 5, 1000);
+        }
+      });
+    }, { threshold: 0.3 });
+    statsObserver.observe(document.querySelector('.cert-stats'));
+
+    // ===== SCROLL =====
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;

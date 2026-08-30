@@ -5,6 +5,198 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills — Remas Alroubie</title>
   <link rel="stylesheet" href="remasalroubie.css" />
+  <script src="lang.js"></script>
+  <style>
+    /* ===== HERO ===== */
+    .skills-hero {
+      padding: 7rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 60%, #e8d5c4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .skills-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: rgba(196,168,130,0.15);
+      top: -150px; right: -150px;
+      pointer-events: none;
+    }
+    .skills-hero-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .skills-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+    .skills-hero p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ===== SECTION ===== */
+    .skills-section {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-divider {
+      width: 50px; height: 3px;
+      background: linear-gradient(135deg, var(--pink-mid), var(--purple-mid));
+      margin: 0.6rem auto 3rem;
+      border-radius: 2px;
+    }
+
+    /* ===== FLIP CARDS GRID ===== */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .flip-card {
+      height: 220px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-inner,
+    .flip-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .flip-front {
+      background: white;
+      border: 1px solid rgba(200,180,154,0.3);
+      box-shadow: 0 4px 20px rgba(122,98,72,0.08);
+    }
+
+    .flip-back {
+      background: linear-gradient(135deg, #c4a882, #7a6248);
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    .flip-icon {
+      font-size: 2.8rem;
+      margin-bottom: 0.8rem;
+      transition: transform 0.3s;
+    }
+    .flip-card:hover .flip-icon { transform: scale(1.1); }
+
+    .flip-front h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+    .flip-front p {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .flip-back h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+    .flip-back p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+    }
+    .flip-hint {
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: -1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.7;
+    }
+
+    /* ===== SOFT SKILLS — bigger cards ===== */
+    .soft-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .soft-card {
+      height: 200px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .soft-card .flip-front { background: var(--purple-light); border-color: rgba(200,180,154,0.4); }
+
+    /* ===== SEPARATOR ===== */
+    .section-sep {
+      border: none;
+      border-top: 1px solid rgba(200,180,154,0.25);
+      margin: 0 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .flip-grid { grid-template-columns: repeat(2, 1fr); }
+      .soft-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -23,76 +215,216 @@
     </ul>
   </nav>
 
-  <div class="page-section">
-    <h2 class="sec-title" data-en="Skills" data-ar="المهارات">Skills</h2>
-    <div class="underline"></div>
+  <!-- HERO -->
+  <div class="skills-hero">
+    <p class="skills-hero-label" data-en="What I bring to the table" data-ar="ما أقدمه">What I bring to the table</p>
+    <h1 data-en="My Skills" data-ar="مهاراتي">My Skills</h1>
+    <p data-en="Hover over each card to see how I use each skill in practice." data-ar="مرر فوق كل بطاقة لترى كيف أطبق كل مهارة عملياً.">Hover over each card to see how I use each skill in practice.</p>
+  </div>
 
-    <p class="skills-category-label" data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</p>
-    <div class="skills-row" style="margin-bottom:3rem;">
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🐍</div>
-        <h4 data-en="Python" data-ar="بايثون">Python</h4>
-        <p data-en="Data analysis · Automation" data-ar="تحليل البيانات · الأتمتة">Data analysis · Automation</p>
+  <!-- TECHNICAL SKILLS -->
+  <div class="skills-section">
+    <p class="section-label" data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</p>
+    <div class="section-divider"></div>
+    <p class="flip-hint" data-en="↗ hover to flip" data-ar="↗ مرر للقلب">↗ hover to flip</p>
+
+    <div class="flip-grid">
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🐍</div>
+            <h4 data-en="Python" data-ar="بايثون">Python</h4>
+            <p data-en="Data analysis · Automation" data-ar="تحليل البيانات · الأتمتة">Data analysis · Automation</p>
+          </div>
+          <div class="flip-back">
+            <h4 data-en="Python" data-ar="بايثون">Python</h4>
+            <p data-en="I use Python for data cleaning, analysis, and building ML models with pandas, NumPy, and scikit-learn." data-ar="أستخدم Python لتنظيف البيانات والتحليل وبناء نماذج ML باستخدام pandas وNumPy وscikit-learn.">I use Python for data cleaning, analysis, and building ML models with pandas, NumPy, and scikit-learn.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🗄️</div>
-        <h4>SQL</h4>
-        <p data-en="Queries · Data retrieval" data-ar="الاستعلامات · استرجاع البيانات">Queries · Data retrieval</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🗄️</div>
+            <h4>SQL</h4>
+            <p data-en="Queries · Data retrieval" data-ar="الاستعلامات · استرجاع البيانات">Queries · Data retrieval</p>
+          </div>
+          <div class="flip-back">
+            <h4>SQL</h4>
+            <p data-en="I write queries to extract, filter, and aggregate data from relational databases for analysis and reporting." data-ar="أكتب استعلامات لاستخراج البيانات وتصفيتها وتجميعها من قواعد البيانات العلائقية.">I write queries to extract, filter, and aggregate data from relational databases for analysis and reporting.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">📊</div>
-        <h4>Power BI</h4>
-        <p data-en="Dashboards · Reports" data-ar="لوحات البيانات · التقارير">Dashboards · Reports</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">📊</div>
+            <h4>Power BI</h4>
+            <p data-en="Dashboards · Reports" data-ar="لوحات البيانات · التقارير">Dashboards · Reports</p>
+          </div>
+          <div class="flip-back">
+            <h4>Power BI</h4>
+            <p data-en="I build interactive dashboards and visual reports that turn complex data into clear, actionable insights." data-ar="أبني لوحات بيانات تفاعلية وتقارير مرئية تحوّل البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ.">I build interactive dashboards and visual reports that turn complex data into clear, actionable insights.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">📋</div>
-        <h4>Excel</h4>
-        <p data-en="Analysis · Pivot Tables" data-ar="التحليل · الجداول المحورية">Analysis · Pivot Tables</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">📋</div>
+            <h4>Excel</h4>
+            <p data-en="Analysis · Pivot Tables" data-ar="التحليل · الجداول المحورية">Analysis · Pivot Tables</p>
+          </div>
+          <div class="flip-back">
+            <h4>Excel</h4>
+            <p data-en="I use Excel for data exploration, pivot tables, and quick analysis before moving to more advanced tools." data-ar="أستخدم Excel لاستكشاف البيانات والجداول المحورية والتحليل السريع قبل الانتقال لأدوات أكثر تقدماً.">I use Excel for data exploration, pivot tables, and quick analysis before moving to more advanced tools.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🧹</div>
-        <h4 data-en="Data Cleaning" data-ar="تنظيف البيانات">Data Cleaning</h4>
-        <p data-en="Wrangling · Preprocessing" data-ar="معالجة البيانات · المعالجة المسبقة">Wrangling · Preprocessing</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🧹</div>
+            <h4 data-en="Data Cleaning" data-ar="تنظيف البيانات">Data Cleaning</h4>
+            <p data-en="Wrangling · Preprocessing" data-ar="معالجة البيانات · المعالجة المسبقة">Wrangling · Preprocessing</p>
+          </div>
+          <div class="flip-back">
+            <h4 data-en="Data Cleaning" data-ar="تنظيف البيانات">Data Cleaning</h4>
+            <p data-en="I handle missing values, duplicates, and inconsistencies to prepare clean, reliable datasets for analysis." data-ar="أتعامل مع القيم المفقودة والمكررة والتناقضات لإعداد مجموعات بيانات نظيفة وموثوقة للتحليل.">I handle missing values, duplicates, and inconsistencies to prepare clean, reliable datasets for analysis.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">📐</div>
-        <h4 data-en="Statistics" data-ar="الإحصاء">Statistics</h4>
-        <p data-en="Analysis · Inference" data-ar="التحليل · الاستنتاج">Analysis · Inference</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">📐</div>
+            <h4 data-en="Statistics" data-ar="الإحصاء">Statistics</h4>
+            <p data-en="Analysis · Inference" data-ar="التحليل · الاستنتاج">Analysis · Inference</p>
+          </div>
+          <div class="flip-back">
+            <h4 data-en="Statistics" data-ar="الإحصاء">Statistics</h4>
+            <p data-en="I apply descriptive and inferential statistics to understand patterns, correlations, and distributions in data." data-ar="أطبق الإحصاء الوصفي والاستنتاجي لفهم الأنماط والارتباطات والتوزيعات في البيانات.">I apply descriptive and inferential statistics to understand patterns, correlations, and distributions in data.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">☕</div>
-        <h4>Java</h4>
-        <p data-en="OOP · Logic" data-ar="البرمجة الكائنية · المنطق">OOP · Logic</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🤖</div>
+            <h4 data-en="Machine Learning" data-ar="تعلم الآلة">Machine Learning</h4>
+            <p data-en="Models · Evaluation" data-ar="النماذج · التقييم">Models · Evaluation</p>
+          </div>
+          <div class="flip-back">
+            <h4 data-en="Machine Learning" data-ar="تعلم الآلة">Machine Learning</h4>
+            <p data-en="I build and evaluate classification models like Logistic Regression, Decision Trees, and Random Forests." data-ar="أبني وأقيّم نماذج تصنيف مثل الانحدار اللوجستي وأشجار القرار والغابات العشوائية.">I build and evaluate classification models like Logistic Regression, Decision Trees, and Random Forests.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🌐</div>
-        <h4>HTML &amp; CSS</h4>
-        <p data-en="Web · Styling" data-ar="الويب · التنسيق">Web · Styling</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">☕</div>
+            <h4>Java</h4>
+            <p data-en="OOP · Logic" data-ar="البرمجة الكائنية · المنطق">OOP · Logic</p>
+          </div>
+          <div class="flip-back">
+            <h4>Java</h4>
+            <p data-en="I use Java for object-oriented programming, covering core concepts like inheritance, encapsulation, and polymorphism." data-ar="أستخدم Java للبرمجة الكائنية، وأغطي المفاهيم الأساسية مثل الوراثة والتغليف وتعدد الأشكال.">I use Java for object-oriented programming, covering core concepts like inheritance, encapsulation, and polymorphism.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🐙</div>
-        <h4>GitHub</h4>
-        <p data-en="Version control · Projects" data-ar="التحكم بالإصدارات · المشاريع">Version control · Projects</p>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🌐</div>
+            <h4>HTML &amp; CSS</h4>
+            <p data-en="Web · Styling" data-ar="الويب · التنسيق">Web · Styling</p>
+          </div>
+          <div class="flip-back">
+            <h4>HTML &amp; CSS</h4>
+            <p data-en="I build responsive, bilingual websites from scratch — including this portfolio you're looking at right now!" data-ar="أبني مواقع ويب متجاوبة وثنائية اللغة من الصفر — بما في ذلك هذا الموقع الذي تشاهده الآن!">I build responsive, bilingual websites from scratch — including this portfolio you're looking at right now!</p>
+          </div>
+        </div>
       </div>
+
+      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🐙</div>
+            <h4>GitHub</h4>
+            <p data-en="Version control · Projects" data-ar="التحكم بالإصدارات · المشاريع">Version control · Projects</p>
+          </div>
+          <div class="flip-back">
+            <h4>GitHub</h4>
+            <p data-en="I use GitHub to manage code versions, collaborate on projects, and deploy websites via GitHub Pages." data-ar="أستخدم GitHub لإدارة إصدارات الكود والتعاون في المشاريع ونشر المواقع عبر GitHub Pages.">I use GitHub to manage code versions, collaborate on projects, and deploy websites via GitHub Pages.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <p class="skills-category-label" data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</p>
-    <div class="skills-row">
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🧩</div>
-        <h4 data-en="Problem Solving" data-ar="حل المشكلات">Problem Solving</h4>
-        <p data-en="Analytical · Critical thinking" data-ar="تحليلي · تفكير نقدي">Analytical · Critical thinking</p>
+  <hr class="section-sep" />
+
+  <!-- SOFT SKILLS -->
+  <div class="skills-section" style="padding-top:3rem;">
+    <p class="section-label" data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</p>
+    <div class="section-divider"></div>
+    <p class="flip-hint" data-en="↗ hover to flip" data-ar="↗ مرر للقلب">↗ hover to flip</p>
+
+    <div class="soft-grid">
+
+      <div class="soft-card flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🧩</div>
+            <h4 data-en="Problem Solving" data-ar="حل المشكلات">Problem Solving</h4>
+            <p data-en="Analytical · Critical thinking" data-ar="تحليلي · تفكير نقدي">Analytical · Critical thinking</p>
+          </div>
+          <div class="flip-back">
+            <h4 data-en="Problem Solving" data-ar="حل المشكلات">Problem Solving</h4>
+            <p data-en="I break down complex problems into smaller pieces and approach them systematically — in code and in life." data-ar="أقسّم المشكلات المعقدة إلى أجزاء أصغر وأتعامل معها بشكل منهجي — في الكود وفي الحياة.">I break down complex problems into smaller pieces and approach them systematically — in code and in life.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🤝</div>
-        <h4 data-en="Teamwork" data-ar="العمل الجماعي">Teamwork</h4>
-        <p data-en="Collaboration · Communication" data-ar="التعاون · التواصل">Collaboration · Communication</p>
+
+      <div class="soft-card flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🤝</div>
+            <h4 data-en="Teamwork" data-ar="العمل الجماعي">Teamwork</h4>
+            <p data-en="Collaboration · Communication" data-ar="التعاون · التواصل">Collaboration · Communication</p>
+          </div>
+          <div class="flip-back">
+            <h4 data-en="Teamwork" data-ar="العمل الجماعي">Teamwork</h4>
+            <p data-en="I've worked in multiple group projects, contributing ideas, dividing tasks, and delivering results together." data-ar="عملت في عدة مشاريع جماعية، وساهمت بالأفكار وتقسيم المهام وتحقيق النتائج معاً.">I've worked in multiple group projects, contributing ideas, dividing tasks, and delivering results together.</p>
+          </div>
+        </div>
       </div>
-      <div class="skill-box fade-in">
-        <div class="skill-icon">🎤</div>
-        <h4 data-en="Presentation Skills" data-ar="مهارات التقديم">Presentation Skills</h4>
-        <p data-en="Storytelling · Public speaking" data-ar="سرد القصص · الحديث أمام الجمهور">Storytelling · Public speaking</p>
+
+      <div class="soft-card flip-card fade-in" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🎤</div>
+            <h4 data-en="Presentation Skills" data-ar="مهارات التقديم">Presentation Skills</h4>
+            <p data-en="Storytelling · Public speaking" data-ar="سرد القصص · الحديث أمام الجمهور">Storytelling · Public speaking</p>
+          </div>
+          <div class="flip-back">
+            <h4 data-en="Presentation Skills" data-ar="مهارات التقديم">Presentation Skills</h4>
+            <p data-en="I present data findings and project results clearly and confidently, turning numbers into compelling stories." data-ar="أقدم نتائج البيانات ونتائج المشاريع بوضوح وثقة، وأحوّل الأرقام إلى قصص مقنعة.">I present data findings and project results clearly and confidently, turning numbers into compelling stories.</p>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -101,17 +433,6 @@
   </footer>
 
   <script>
-    let isArabic = false;
-    function toggleLang() {
-      isArabic = !isArabic;
-      const btn = document.querySelector('.lang-btn');
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.innerHTML = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-      });
-      document.body.classList.toggle('rtl', isArabic);
-      btn.textContent = isArabic ? 'English' : 'العربية';
-    }
-
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;

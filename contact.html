@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Remas Alroubie</title>
   <link rel="stylesheet" href="remasalroubie.css" />
+  <script src="lang.js"></script>
 </head>
 <body>
 
@@ -94,16 +95,6 @@
   </footer>
 
   <script>
-    let isArabic = false;
-    function toggleLang() {
-      isArabic = !isArabic;
-      const btn = document.querySelector('.lang-btn');
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.innerHTML = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-      });
-      document.body.classList.toggle('rtl', isArabic);
-      btn.textContent = isArabic ? 'English' : 'العربية';
-    }
 
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;

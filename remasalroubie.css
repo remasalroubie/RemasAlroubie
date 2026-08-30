@@ -343,12 +343,19 @@ body.rtl #back-to-top { right: auto; left: 2rem; }
 }
 
 .port-img {
-  height: 160px;
+  height: 200px;
   background: var(--gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.port-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .port-body { padding: 1.5rem; }
