@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills — Remas Alroubie</title>
   <link rel="stylesheet" href="remasalroubie.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
   <script src="lang.js"></script>
   <style>
     /* ===== HERO ===== */
     .skills-hero {
       padding: 7rem 2rem 4rem;
       text-align: center;
-      background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 60%, #e8d5c4 100%);
+      background: linear-gradient(135deg, #f5ede0 0%, #c9a463 60%, #8a6d3f 100%);
       position: relative;
       overflow: hidden;
     }
@@ -117,13 +118,13 @@
     }
 
     .flip-front {
-      background: white;
-      border: 1px solid rgba(200,180,154,0.3);
-      box-shadow: 0 4px 20px rgba(122,98,72,0.08);
+      background: var(--panel);
+      border: 1px solid rgba(201,164,99,0.18);
+      box-shadow: 0 4px 20px rgba(201,164,99,0.16);
     }
 
     .flip-back {
-      background: linear-gradient(135deg, #c4a882, #7a6248);
+      background: linear-gradient(135deg, #d8b788, #a67c3d);
       color: white;
       transform: rotateY(180deg);
     }
@@ -183,12 +184,12 @@
       perspective: 1000px;
       cursor: pointer;
     }
-    .soft-card .flip-front { background: var(--purple-light); border-color: rgba(200,180,154,0.4); }
+    .soft-card .flip-front { background: var(--purple-light); border-color: rgba(201,164,99,0.22); }
 
     /* ===== SEPARATOR ===== */
     .section-sep {
       border: none;
-      border-top: 1px solid rgba(200,180,154,0.25);
+      border-top: 1px solid rgba(201,164,99,0.15);
       margin: 0 2rem;
     }
 
@@ -204,7 +205,7 @@
   <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <nav>
-    <a href="index.html" class="logo">REMAS ALROUBIE</a>
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="Remas Alroubie" class="logo-img"><span>REMAS ALROUBIE</span></a>
     <ul>
       <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
       <li><a href="mywork.html" data-en="Work" data-ar="أعمالي">Work</a></li>
@@ -355,49 +356,6 @@
           </div>
         </div>
       </div>
-
-      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <div class="flip-icon">🐼</div>
-            <h4>Pandas</h4>
-            <p data-en="Data Analysis · Manipulation" data-ar="تحليل البيانات · المعالجة">Data Analysis · Manipulation</p>
-          </div>
-          <div class="flip-back">
-            <h4>Pandas</h4>
-            <p data-en="I use pandas for data cleaning, manipulation, and analysis — from loading datasets to grouping and aggregating results." data-ar="أستخدم pandas لتنظيف البيانات ومعالجتها وتحليلها.">I use pandas for data cleaning, manipulation, and analysis — from loading datasets to grouping and aggregating results.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <div class="flip-icon">🔢</div>
-            <h4>NumPy</h4>
-            <p data-en="Numerical Computing · Arrays" data-ar="الحوسبة العددية · المصفوفات">Numerical Computing · Arrays</p>
-          </div>
-          <div class="flip-back">
-            <h4>NumPy</h4>
-            <p data-en="I use NumPy for numerical operations, array manipulation, and mathematical computations that power data analysis and ML models." data-ar="أستخدم NumPy للعمليات الحسابية ومعالجة المصفوفات التي تدعم تحليل البيانات.">I use NumPy for numerical operations, array manipulation, and mathematical computations that power data analysis and ML models.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <div class="flip-icon">📉</div>
-            <h4>Matplotlib & Seaborn</h4>
-            <p data-en="Data Visualization · Charts" data-ar="تصوير البيانات · الرسوم البيانية">Data Visualization · Charts</p>
-          </div>
-          <div class="flip-back">
-            <h4>Matplotlib & Seaborn</h4>
-            <p data-en="I create clear data visualizations — scatter plots, histograms, heatmaps, and correlation matrices." data-ar="أنشئ تصورات بيانية واضحة — مخططات مبعثرة وهستوغرام وخرائط حرارة ومصفوفات ارتباط.">I create clear data visualizations — scatter plots, histograms, heatmaps, and correlation matrices.</p>
-          </div>
-        </div>
-      </div>
-
 
     </div>
   </div>
