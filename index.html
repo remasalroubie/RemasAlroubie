@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Remas Alroubie — Home</title>
   <link rel="stylesheet" href="remasalroubie.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
   <script src="lang.js"></script>
   <style>
     /* ===== HERO REDESIGN ===== */
@@ -30,9 +31,9 @@
       animation: floatOrb 8s ease-in-out infinite;
       pointer-events: none;
     }
-    .orb1 { width: 400px; height: 400px; background: #c4a882; top: -100px; right: -100px; animation-delay: 0s; }
-    .orb2 { width: 300px; height: 300px; background: #d4bc9a; bottom: -50px; left: -80px; animation-delay: 3s; }
-    .orb3 { width: 200px; height: 200px; background: #a8906e; top: 40%; left: 10%; animation-delay: 5s; }
+    .orb1 { width: 400px; height: 400px; background: #d8b788; top: -100px; right: -100px; animation-delay: 0s; }
+    .orb2 { width: 300px; height: 300px; background: #e6cda0; bottom: -50px; left: -80px; animation-delay: 3s; }
+    .orb3 { width: 200px; height: 200px; background: #ab8f63; top: 40%; left: 10%; animation-delay: 5s; }
 
     @keyframes floatOrb {
       0%, 100% { transform: translateY(0px) scale(1); }
@@ -67,7 +68,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: linear-gradient(135deg, #c4a882, #7a6248);
+      background: linear-gradient(135deg, #d8b788, #a67c3d);
       color: white;
       font-size: 1rem;
       font-weight: 500;
@@ -83,7 +84,7 @@
       display: inline-block;
       width: 2px;
       height: 1em;
-      background: white;
+      background: var(--panel);
       margin-left: 3px;
       vertical-align: middle;
       animation: blink 0.8s infinite;
@@ -112,7 +113,7 @@
 
     .btn-hero-primary {
       display: inline-block;
-      background: linear-gradient(135deg, #c4a882, #7a6248);
+      background: linear-gradient(135deg, #d8b788, #a67c3d);
       color: white;
       padding: 0.9rem 2.5rem;
       border-radius: 4px;
@@ -122,9 +123,9 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
-      box-shadow: 0 8px 25px rgba(122,98,72,0.3);
+      box-shadow: 0 8px 25px rgba(201,164,99,0.3);
     }
-    .btn-hero-primary:hover { transform: translateY(-3px); opacity: 0.9; box-shadow: 0 12px 35px rgba(122,98,72,0.4); }
+    .btn-hero-primary:hover { transform: translateY(-3px); opacity: 0.9; box-shadow: 0 12px 35px rgba(201,164,99,0.4); }
 
     .btn-hero-outline {
       display: inline-block;
@@ -140,7 +141,7 @@
       border: 1.5px solid var(--text-dark);
       transition: transform 0.3s, background 0.3s, color 0.3s;
     }
-    .btn-hero-outline:hover { transform: translateY(-3px); background: var(--text-dark); color: white; }
+    .btn-hero-outline:hover { transform: translateY(-3px); background: var(--text-dark); color: var(--bg); }
 
     /* Scroll indicator */
     .scroll-hint {
@@ -174,9 +175,9 @@
     /* ===== STATS SECTION ===== */
     .stats-section {
       padding: 5rem 2rem;
-      background: white;
-      border-top: 1px solid rgba(200,180,154,0.2);
-      border-bottom: 1px solid rgba(200,180,154,0.2);
+      background: var(--panel);
+      border-top: 1px solid rgba(201,164,99,0.12);
+      border-bottom: 1px solid rgba(201,164,99,0.12);
     }
     .stats-inner {
       max-width: 900px;
@@ -196,7 +197,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #c4a882, #7a6248);
+      background: linear-gradient(135deg, #d8b788, #a67c3d);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -250,27 +251,27 @@
       text-transform: uppercase;
       color: var(--purple-mid);
       background: var(--purple-light);
-      border: 1px solid rgba(200,180,154,0.4);
+      border: 1px solid rgba(201,164,99,0.22);
       padding: 0.4rem 1rem;
       border-radius: 50px;
     }
     .about-img-box {
-      background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 50%, #e8d5c4 100%);
+      background: linear-gradient(135deg, #f5ede0 0%, #c9a463 50%, #8a6d3f 100%);
       border-radius: 20px;
       padding: 3rem;
       display: flex;
       align-items: center;
       justify-content: center;
       aspect-ratio: 1;
-      border: 1px solid rgba(200,180,154,0.3);
+      border: 1px solid rgba(201,164,99,0.18);
     }
     .about-img-box img { width: 100%; height: 100%; object-fit: contain; border-radius: 12px; }
 
     /* ===== TOOLS SECTION ===== */
     .tools-section {
       padding: 5rem 2rem;
-      background: white;
-      border-top: 1px solid rgba(200,180,154,0.2);
+      background: var(--panel);
+      border-top: 1px solid rgba(201,164,99,0.12);
     }
     .tools-inner { max-width: 900px; margin: 0 auto; }
     .tools-grid {
@@ -281,7 +282,7 @@
     }
     .tool-card {
       background: var(--bg);
-      border: 1px solid rgba(200,180,154,0.3);
+      border: 1px solid rgba(201,164,99,0.18);
       border-radius: 12px;
       padding: 1.5rem 1rem;
       text-align: center;
@@ -290,7 +291,7 @@
     }
     .tool-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(122,98,72,0.15);
+      box-shadow: 0 10px 30px rgba(201,164,99,0.15);
       border-color: var(--purple-soft);
     }
     .tool-icon { font-size: 2rem; margin-bottom: 0.6rem; }
@@ -306,7 +307,7 @@
     .cta-section {
       padding: 6rem 2rem;
       text-align: center;
-      background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 50%, #e8d5c4 100%);
+      background: linear-gradient(135deg, #f5ede0 0%, #c9a463 50%, #8a6d3f 100%);
     }
     .cta-section h2 {
       font-family: 'Playfair Display', serif;
@@ -352,7 +353,7 @@
   <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <nav>
-    <a href="index.html" class="logo">REMAS ALROUBIE</a>
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="Remas Alroubie" class="logo-img"><span>REMAS ALROUBIE</span></a>
     <ul>
       <li><a href="index.html" class="active" data-en="Home" data-ar="الرئيسية">Home</a></li>
       <li><a href="mywork.html" data-en="Work" data-ar="أعمالي">Work</a></li>

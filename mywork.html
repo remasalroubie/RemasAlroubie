@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Work — Remas Alroubie</title>
   <link rel="stylesheet" href="remasalroubie.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
   <script src="lang.js"></script>
   <style>
     /* ===== HERO ===== */
     .work-hero {
       padding: 7rem 2rem 4rem;
       text-align: center;
-      background: linear-gradient(135deg, #f5ede0 0%, #ede0d4 60%, #e8d5c4 100%);
+      background: linear-gradient(135deg, #f5ede0 0%, #c9a463 60%, #8a6d3f 100%);
       position: relative;
       overflow: hidden;
     }
@@ -55,8 +56,8 @@
       padding: 2.5rem 2rem 0;
     }
     .filter-btn {
-      background: white;
-      border: 1.5px solid rgba(200,180,154,0.4);
+      background: var(--panel);
+      border: 1.5px solid rgba(201,164,99,0.22);
       color: var(--text-mid);
       font-size: 0.75rem;
       font-weight: 600;
@@ -70,10 +71,10 @@
     }
     .filter-btn:hover { border-color: var(--purple-mid); color: var(--purple-mid); }
     .filter-btn.active {
-      background: linear-gradient(135deg, #c4a882, #7a6248);
+      background: linear-gradient(135deg, #d8b788, #a67c3d);
       color: white;
       border-color: transparent;
-      box-shadow: 0 4px 15px rgba(122,98,72,0.3);
+      box-shadow: 0 4px 15px rgba(201,164,99,0.3);
     }
 
     /* ===== TIMELINE ===== */
@@ -118,7 +119,7 @@
     .tl-dot {
       width: 16px; height: 16px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #c4a882, #7a6248);
+      background: linear-gradient(135deg, #d8b788, #a67c3d);
       border: 3px solid white;
       box-shadow: 0 0 0 2px rgba(196,168,130,0.5);
     }
@@ -132,17 +133,17 @@
 
     .tl-content {
       width: 100%;
-      background: white;
-      border: 1px solid rgba(200,180,154,0.3);
+      background: var(--panel);
+      border: 1px solid rgba(201,164,99,0.18);
       border-radius: 16px;
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 20px rgba(122,98,72,0.06);
+      box-shadow: 0 4px 20px rgba(201,164,99,0.14);
     }
     .tl-content:hover {
       transform: translateY(-6px);
-      box-shadow: 0 15px 40px rgba(122,98,72,0.15);
+      box-shadow: 0 15px 40px rgba(201,164,99,0.15);
     }
 
     .tl-img {
@@ -186,7 +187,7 @@
       color: var(--text-mid);
       padding: 0.2rem 0.7rem;
       border-radius: 50px;
-      border: 1px solid rgba(200,180,154,0.4);
+      border: 1px solid rgba(201,164,99,0.22);
     }
     .tl-click-hint {
       font-size: 0.68rem;
@@ -208,7 +209,7 @@
     .tl-dot {
       width: 16px; height: 16px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #c4a882, #7a6248);
+      background: linear-gradient(135deg, #d8b788, #a67c3d);
       border: 3px solid white;
       box-shadow: 0 0 0 2px rgba(196,168,130,0.5);
       flex-shrink: 0;
@@ -248,7 +249,7 @@
     .modal-bg.open { display: flex; }
 
     .modal-box {
-      background: white;
+      background: var(--panel);
       border-radius: 20px;
       max-width: 680px;
       width: 100%;
@@ -306,7 +307,7 @@
       color: var(--text-mid);
       padding: 0.3rem 0.9rem;
       border-radius: 50px;
-      border: 1px solid rgba(200,180,154,0.4);
+      border: 1px solid rgba(201,164,99,0.22);
     }
     .modal-btns {
       display: flex;
@@ -319,7 +320,7 @@
       top: 1rem; right: 1rem;
       width: 36px; height: 36px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.9);
+      background: rgba(12,10,8,0.85);
       border: none;
       font-size: 1.1rem;
       cursor: pointer;
@@ -354,7 +355,7 @@
   <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <nav>
-    <a href="index.html" class="logo">REMAS ALROUBIE</a>
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="Remas Alroubie" class="logo-img"><span>REMAS ALROUBIE</span></a>
     <ul>
       <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
       <li><a href="mywork.html" class="active" data-en="Work" data-ar="أعمالي">Work</a></li>
