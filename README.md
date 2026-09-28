@@ -1,4 +1,4 @@
-# Hi, I'm Remas 👋
+# Hi, I'm Remas 
 
 I'm a Data Science student at Umm Al-Qura University, College of Computing.
 
