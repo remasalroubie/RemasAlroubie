@@ -728,9 +728,10 @@ footer {
 }
 
 /* ===== Arabic font ===== */
+
 :root {
-  --ar-heading: 'Amiri', serif;      /* العناوين */
-  --ar-body: 'Tajawal', sans-serif;  /* النصوص */
+  --ar-heading: 'Tajawal', sans-serif;  /* العناوين */
+  --ar-body: 'Tajawal', sans-serif;     /* النصوص */
 }
 
 body.rtl, body.rtl * { font-family: var(--ar-body); letter-spacing: 0 !important; }
