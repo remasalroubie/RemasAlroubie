@@ -12,19 +12,22 @@
     .skills-hero {
       padding: 7rem 2rem 4rem;
       text-align: center;
-      background: linear-gradient(135deg, #f5ede0 0%, #c9a463 60%, #8a6d3f 100%);
+      background: var(--bg);
+      border-bottom: 1px solid rgba(201,164,99,0.18);
       position: relative;
       overflow: hidden;
     }
-    .skills-hero::before {
+    .skills-hero::before,
+    .skills-hero::after {
       content: '';
       position: absolute;
-      width: 500px; height: 500px;
       border-radius: 50%;
-      background: rgba(201,164,99,0.14);
-      top: -150px; right: -150px;
+      filter: blur(60px);
       pointer-events: none;
     }
+    .skills-hero::before { width: 400px; height: 400px; background: rgba(216,183,136,0.25); top: -120px; right: -100px; }
+    .skills-hero::after  { width: 300px; height: 300px; background: rgba(166,124,61,0.22); bottom: -120px; left: -80px; }
+    .skills-hero > * { position: relative; z-index: 1; }
     .skills-hero-label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -39,9 +42,9 @@
       color: var(--text-dark);
       margin-bottom: 1rem;
     }
-    .skills-hero p {
+    .skills-hero p.hero-sub {
       font-size: 1rem;
-      color: var(--text-mid);
+      color: var(--text-light);
       max-width: 500px;
       margin: 0 auto;
       line-height: 1.8;
@@ -84,7 +87,7 @@
     }
 
     .flip-card {
-      height: 220px;
+      height: 250px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -97,12 +100,13 @@
       transform-style: preserve-3d;
     }
 
-    .flip-card:hover .flip-inner,
-    .flip-card.flipped .flip-inner {
-      transform: rotateY(180deg);
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    @media (hover: hover) {
+      .flip-card:hover .flip-inner { transform: rotateY(180deg); }
     }
 
     .flip-front, .flip-back {
+      box-sizing: border-box;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -113,8 +117,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
+      padding: 1.1rem;
       text-align: center;
+      overflow: hidden;
     }
 
     .flip-front {
@@ -124,7 +129,7 @@
     }
 
     .flip-back {
-      background: linear-gradient(135deg, #d8b788, #a67c3d);
+      background: linear-gradient(135deg, #8a6d3f, #5c4524);
       color: white;
       transform: rotateY(180deg);
     }
@@ -134,7 +139,7 @@
       margin-bottom: 0.8rem;
       transition: transform 0.3s;
     }
-    .flip-card:hover .flip-icon { transform: scale(1.1); }
+    @media (hover: hover) { .flip-card:hover .flip-icon { transform: scale(1.1); } }
 
     .flip-front h4 {
       font-size: 0.9rem;
@@ -158,9 +163,9 @@
       margin-bottom: 0.8rem;
     }
     .flip-back p {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.7;
+      font-size: 0.8rem;
+      color: #fff;
+      line-height: 1.6;
     }
     .flip-hint {
       font-size: 0.65rem;
@@ -180,7 +185,7 @@
       gap: 1.5rem;
     }
     .soft-card {
-      height: 200px;
+      height: 220px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -220,14 +225,14 @@
   <div class="skills-hero">
     <p class="skills-hero-label" data-en="What I bring to the table" data-ar="ما أقدمه">What I bring to the table</p>
     <h1 data-en="My Skills" data-ar="مهاراتي">My Skills</h1>
-    <p data-en="Hover over each card to see how I use each skill in practice." data-ar="مرر فوق كل بطاقة لترى كيف أطبق كل مهارة عملياً.">Hover over each card to see how I use each skill in practice.</p>
+    <p class="hero-sub" data-en="Hover over (or tap) each card to see how I use each skill in practice." data-ar="مرر فوق كل بطاقة (أو المسها) لترى كيف أطبق كل مهارة عملياً.">Hover over (or tap) each card to see how I use each skill in practice.</p>
   </div>
 
   <!-- TECHNICAL SKILLS -->
   <div class="skills-section">
     <p class="section-label" data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</p>
     <div class="section-divider"></div>
-    <p class="flip-hint" data-en="↗ hover to flip" data-ar="↗ مرر للقلب">↗ hover to flip</p>
+    <p class="flip-hint" data-en="↗ hover or tap to flip" data-ar="↗ مرر أو المس للقلب">↗ hover or tap to flip</p>
 
     <div class="flip-grid">
 
@@ -250,7 +255,7 @@
           <div class="flip-front">
             <div class="flip-icon">🐼</div>
             <h4>Pandas</h4>
-            <p data-en="Data manipulation · DataFrames" data-ar= " DataFrames">Data manipulation · DataFrames</p>
+            <p data-en="Data manipulation · DataFrames" data-ar="معالجة البيانات · إطارات البيانات">Data manipulation · DataFrames</p>
           </div>
           <div class="flip-back">
             <h4>Pandas</h4>
@@ -264,10 +269,11 @@
           <div class="flip-front">
             <div class="flip-icon">📊</div>
             <h4>Tableau</h4>
-            <p data-en="Data Visualization · Dashboards" data-ar="تصور البيانات · لوحات المعلومات"> Data Visualization · Dashboards
+            <p data-en="Data Visualization · Dashboards" data-ar="تصور البيانات · لوحات المعلومات">Data Visualization · Dashboards</p>
+          </div>
           <div class="flip-back">
             <h4>Tableau</h4>
-            <p data-en="I use Tableau to create interactive dashboards, visualize data, and present insights that help understand trends and support data-driven decisions." data-ar="أستخدم Tableau لإنشاء لوحات معلومات تفاعلية، وتصوير البيانات، وعرض النتائج التي تساعد على فهم الاتجاهات ودعم اتخاذ القرارات بناءً على البيانات.">  I use Tableau to create interactive dashboards, visualize data, and present insights that help understand trends and support data-driven decisions.
+            <p data-en="I use Tableau to create interactive dashboards, visualize data, and present insights that help understand trends and support data-driven decisions." data-ar="أستخدم Tableau لإنشاء لوحات معلومات تفاعلية، وتصوير البيانات، وعرض النتائج التي تساعد على فهم الاتجاهات ودعم اتخاذ القرارات بناءً على البيانات.">I use Tableau to create interactive dashboards, visualize data, and present insights that help understand trends and support data-driven decisions.</p>
           </div>
         </div>
       </div>
@@ -275,7 +281,7 @@
       <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
           <div class="flip-front">
-            <div class="flip-icon">🤖</div>
+            <div class="flip-icon">🧪</div>
             <h4>Scikit-learn</h4>
             <p data-en="Modeling · Pipelines" data-ar="بناء النماذج · خطوط المعالجة">Modeling · Pipelines</p>
           </div>
@@ -421,7 +427,7 @@
   <div class="skills-section" style="padding-top:3rem;">
     <p class="section-label" data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</p>
     <div class="section-divider"></div>
-    <p class="flip-hint" data-en="↗ hover to flip" data-ar="↗ مرر للقلب">↗ hover to flip</p>
+    <p class="flip-hint" data-en="↗ hover or tap to flip" data-ar="↗ مرر أو المس للقلب">↗ hover or tap to flip</p>
 
     <div class="soft-grid">
 
