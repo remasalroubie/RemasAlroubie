@@ -12,22 +12,19 @@
     .skills-hero {
       padding: 7rem 2rem 4rem;
       text-align: center;
-      background: var(--bg);
-      border-bottom: 1px solid rgba(201,164,99,0.18);
+      background: linear-gradient(135deg, #f5ede0 0%, #c9a463 60%, #8a6d3f 100%);
       position: relative;
       overflow: hidden;
     }
-    .skills-hero::before,
-    .skills-hero::after {
+    .skills-hero::before {
       content: '';
       position: absolute;
+      width: 500px; height: 500px;
       border-radius: 50%;
-      filter: blur(60px);
+      background: rgba(201,164,99,0.14);
+      top: -150px; right: -150px;
       pointer-events: none;
     }
-    .skills-hero::before { width: 400px; height: 400px; background: rgba(216,183,136,0.25); top: -120px; right: -100px; }
-    .skills-hero::after  { width: 300px; height: 300px; background: rgba(166,124,61,0.22); bottom: -120px; left: -80px; }
-    .skills-hero > * { position: relative; z-index: 1; }
     .skills-hero-label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -44,7 +41,7 @@
     }
     .skills-hero p.hero-sub {
       font-size: 1rem;
-      color: var(--text-light);
+      color: var(--text-mid);
       max-width: 500px;
       margin: 0 auto;
       line-height: 1.8;
