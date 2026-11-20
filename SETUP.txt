@@ -1,0 +1,4 @@
+Portfolio V2 - all original HTML content preserved.
+IMPORTANT: Copy your original GitHub repository images/ folder into this folder (including logo.png, certificates, and other assets). Five uploaded project images are included.
+Open index.html or deploy folder contents to GitHub Pages.
+New files: motion.css and motion.js.
